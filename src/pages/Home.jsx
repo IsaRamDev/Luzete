@@ -5,17 +5,17 @@ import { useNavigate } from "react-router-dom";
 const promociones = [
   {
     id: 1,
-    src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg",
+    src: "/src/assets/SLIDER (1).png",
     alt: "Promoción 1",
   },
   {
     id: 2,
-    src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg",
+    src: "/src/assets/SLIDER (2).png",
     alt: "Promoción 2",
   },
   {
     id: 3,
-    src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg",
+    src: "/src/assets/SLIDER (3).png",
     alt: "Promoción 3",
   },
 ];
@@ -23,63 +23,63 @@ const promociones = [
 const descuentos = [
   {
     id: 1,
-    src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg",
+    src: "/src/assets/PRODUCTO (1).png",
     name: "Descuento en auriculares",
     price: "$19.99",
     vendor: "Vendedor 1",
   },
   {
     id: 2,
-    src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg",
+    src: "/src/assets/PRODUCTO (2).png",
     name: "Descuento en cámaras",
     price: "$29.99",
     vendor: "Vendedor 2",
   },
   {
     id: 3,
-    src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg",
+    src: "/src/assets/PRODUCTO (3).png",
     name: "Descuento en relojes",
     price: "$39.99",
     vendor: "Vendedor 3",
   },
   {
     id: 4,
-    src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg",
+    src: "/src/assets/PRODUCTO (4).png",
     name: "Descuento en auriculares",
     price: "$19.99",
     vendor: "Vendedor 1",
   },
   {
     id: 5,
-    src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg",
+    src: "/src/assets/PRODUCTO (5).png",
     name: "Descuento en cámaras",
     price: "$29.99",
     vendor: "Vendedor 2",
   },
   {
     id: 6,
-    src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg",
+    src: "/src/assets/PRODUCTO (6).png",
     name: "Descuento en relojes",
     price: "$39.99",
     vendor: "Vendedor 3",
   },
   {
     id: 7,
-    src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg",
+    src: "/src/assets/PRODUCTO (7).png",
     name: "Descuento en auriculares",
     price: "$19.99",
     vendor: "Vendedor 1",
   },
   {
     id: 8,
-    src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg",
+    src: "/src/assets/PRODUCTO (8).png",
     name: "Descuento en cámaras",
     price: "$29.99",
     vendor: "Vendedor 2",
   },
   {
     id: 9,
-    src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg",
+    src: "/src/assets/PRODUCTO (1).png",
     name: "Descuento en relojes",
     price: "$39.99",
     vendor: "Vendedor 3",
@@ -87,67 +87,13 @@ const descuentos = [
 ];
 
 const catalogo = {
-  mujer: [
-    { id: 1, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Vestidos" },
-    { id: 2, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Conjuntos" },
-    { id: 3, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Blusas" },
-    { id: 4, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Pantalones" },
-    { id: 5, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Faldas" },
-    { id: 6, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Ropa Interior" },
-    { id: 7, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Pijamas" },
-    { id: 8, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Chamarras" },
-    { id: 9, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Sueters" },
-    { id: 10, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Jeans" },
-    { id: 11, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Accesorios" },
+  categorias: [
+    { id: 1, src: "/src/assets/CATEGORIA MUJER.png", name: "MUJER" },
+    { id: 2, src: "/src/assets/CATEGORIA HOMBRE.png", name: "HOMBRE" },
+    { id: 3, src: "/src/assets/CATEGORIA NIÑA.png", name: "NIÑA" },
+    { id: 4, src: "/src/assets/CATEGORIA NIÑO.png", name: "NIÑO" },
   ],
-  hombre: [
-    { id: 1, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Playeras" },
-    { id: 2, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Conjuntos" },
-    { id: 3, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Pantalones" },
-    { id: 4, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Sudaderas" },
-    { id: 5, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Ropa Interior" },
-    { id: 6, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Pijamas" },
-    { id: 7, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Chamarras" },
-    { id: 8, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Accesorios" },
-  ],
-  niñas: [
-    { id: 1, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Vestidos" },
-    { id: 2, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Conjuntos" },
-    { id: 3, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Blusas" },
-    { id: 4, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Pantalones" },
-    { id: 5, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Faldas" },
-    { id: 6, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Ropa Interior" },
-    { id: 7, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Pijamas" },
-    { id: 8, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Chamarras" },
-    { id: 9, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Sueters" },
-    { id: 10, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Jeans" },
-    { id: 11, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Accesorios" },
-  ],
-  niños: [
-    { id: 1, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Playeras" },
-    { id: 2, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Conjuntos" },
-    { id: 3, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Pantalones" },
-    { id: 4, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Sudaderas" },
-    { id: 5, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Ropa Interior" },
-    { id: 6, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Pijamas" },
-    { id: 7, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Chamarras" },
-    { id: 8, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Accesorios" },
-  ],
-  plus: [
-    { id: 1, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Vestidos" },
-    { id: 2, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Conjuntos" },
-    { id: 3, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Blusas" },
-    { id: 4, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Pantalones" },
-    { id: 5, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Faldas" },
-    { id: 6, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Ropa Interior" },
-    { id: 7, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Pijamas" },
-    { id: 8, src: "https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg", name: "Chamarras" },
-    { id: 9, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Sueters" },
-    { id: 10, src: "https://cdn.pixabay.com/photo/2021/10/13/11/33/wedding-6706312_640.jpg", name: "Sudaderas" },
-    { id: 11, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Jeans" },
-    { id: 12, src: "https://cdn.pixabay.com/photo/2023/08/08/09/21/couple-8176869_640.jpg", name: "Accesorios" },
-  ],
-};
+}
 
 export default function Home() {
   const [currentPromoIndex, setCurrentPromoIndex] = useState(0);
@@ -220,22 +166,40 @@ export default function Home() {
         </div>
         <button
           onClick={prevPromo}
-          className="absolute left-12 top-1/2 transform -translate-y-1/2 text-black p-40 rounded-full text-7xl hover:scale-150"
+          className="absolute left-12 top-1/2 transform -translate-y-1/2 text-black rounded-full text-7xl hover:scale-150"
         >
-          &lt;
+          <img
+            src="/src/assets/A IZQ.png"
+            alt="Previous"
+            className="w-12 h-12"
+          />
         </button>
         <button
           onClick={nextPromo}
-          className="absolute right-12 top-1/2 transform -translate-y-1/2 text-black p-40 rounded-full text-7xl hover:scale-150"
+          className="absolute left-1/2 transform -translate-y-1/2 bottom-4 text-black rounded-full text-7xl hover:scale-150"
         >
-          &gt;
+          <img
+            src="/src/assets/DOWN.png"
+            alt="Down"
+            className="w-12 h-12"
+          />
+        </button>
+        <button
+          onClick={nextPromo}
+          className="absolute right-12 top-1/2 transform -translate-y-1/2 text-black rounded-full text-7xl hover:scale-150"
+        >
+          <img
+            src="/src/assets/A DER.png"
+            alt="Next"
+            className="w-12 h-12"
+          />
         </button>
       </div>
 
       {/* Sección de descuentos */}
-      <div className="mb-24">
-        <h2 className="text-3xl font-semibold text-center mb-4">
-          Descuentos Especiales
+      <div className="mb-20 px-20">
+        <h2 className="text-3xl font-semibold mb-4 text-[#ff1654]">
+          OFERTAS hasta 50%
         </h2>
         <div className="relative">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -243,17 +207,17 @@ export default function Home() {
               <div
                 key={descuento.id}
                 onClick={() => handleCardClick(descuento.id)}
-                className="flex-none bg-white hover:bg-gray-200 hover:scale-110 shadow-md rounded-lg p-4"
+                className="hover:scale-110 shadow-md mb-5"
               >
                 <img
                   src={descuento.src}
                   alt={`Descuento ${descuento.id}`}
-                  className="w-full h-52 object-cover rounded-lg"
+                  className="w-full object-cover"
                 />
                 <div className="mt-2">
-                  <p className="text-lg font-semibold">{descuento.name}</p>
-                  <p className="text-xl font-bold">{descuento.price}</p>
-                  <p className="text-sm text-gray-600">{descuento.vendor}</p>
+                  <p className="">{descuento.name}</p>
+                  <p className="text-[#ff1654] font-bold">{descuento.price}<label className="ml-1 p-0.5 bg-[#ff1654] text-white">-30%</label></p>
+                  <p className="font-extrabold line-through">{descuento.vendor}</p>
                 </div>
               </div>
             ))}
@@ -263,9 +227,13 @@ export default function Home() {
           {currentDiscountPage > 0 && (
             <button
               onClick={prevDiscountPage}
-              className="absolute left-2 top-1/2 pb-1 h-16 w-16 transform bg-[#001f54] -translate-y-1/2 text-white rounded-full text-3xl hover:bg-[#254396]"
+              className="absolute top-1/2 pb-1 h-16 w-16 transform -translate-y-1/2 -ml-12"
             >
-              &lt;
+              <img
+                src="/src/assets/B IZQ.png"
+                alt="Next"
+                className="w-8 h-8"
+              />
             </button>
           )}
 
@@ -273,34 +241,36 @@ export default function Home() {
           {(currentDiscountPage + 1) * itemsPerPage < descuentos.length && (
             <button
               onClick={nextDiscountPage}
-              className="absolute right-2 top-1/2 pb-1 h-16 w-16 transform bg-[#001f54] -translate-y-1/2 text-white rounded-full text-3xl hover:bg-[#254396]"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 -mr-12"
             >
-              &gt;
+              <img
+                src="/src/assets/B DER.png"
+                alt="Next"
+                className="w-8 h-8"
+              />
             </button>
           )}
         </div>
       </div>
       {/* Sección de catálogo */}
-      <div className="px-4 mb-24">
-        <h2 className="text-3xl font-semibold text-center mb-6">Nuestro Catálogo</h2>
-
+      <div className="px-20 mb-24">
+        <h2 className="text-3xl font-semibold text-[#ff1654]">CATEGORIAS</h2>
         {/* Muestra productos por categorías */}
         {Object.keys(catalogo).map((category) => (
-          <div key={category} className="mt-20">
-            <h3 className="text-2xl mb-4">{category.charAt(0).toUpperCase() + category.slice(1)}</h3>
+          <div key={category} className="mt-5">
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
               {catalogo[category].map((producto) => (
                 <div
                   key={producto.id}
                   onClick={() => handleSubCategoryClick(category, producto.name)}
-                  className="bg-white shadow-md rounded-lg p-4 text-center hover:bg-gray-200 hover:scale-110"
+                  className="shadow-md text-center hover:scale-110"
                 >
                   <img
                     src={producto.src}
                     alt={`Producto ${producto.name}`}
-                    className="w-full h-80 object-cover rounded-lg mb-2"
+                    className="w-full object-cover"
                   />
-                  <p className="text-lg font-semibold">{producto.name}</p>
+                  <p className="text-lg my-5 font-semibold">{producto.name}</p>
                 </div>
               ))}
             </div>

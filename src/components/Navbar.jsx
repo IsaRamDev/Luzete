@@ -1,10 +1,5 @@
 import {
   FaSearch,
-  FaShoppingCart,
-  FaUser,
-  FaHeart,
-  FaHeadset,
-  FaListAlt,
 } from "react-icons/fa";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -101,28 +96,19 @@ function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-      <div className="container mx-auto max-w-none flex justify-between items-center py-4 px-6">
-        {/* Logo */}
-        <div className="text-2xl font-bold">
-          <a href="/">
-            <img
-              src="https://via.placeholder.com/150x50?text=Luzete"
-              alt="Luzete Logo"
-              className="h-16 rounded-md"
-            />
-          </a>
-        </div>
-
-        {/* Navegación principal */}
-        <nav className="flex items-center space-x-6">
-          {/* Catálogo con menú desplegable */}
+      <div className="container mx-auto max-w-none flex justify-between items-center py-2 px-10">
+        {/* Catálogo con menú desplegable */}
           <div
             className="relative"
             onMouseEnter={handleCatalogMouseEnter}
             onMouseLeave={handleCatalogMouseLeave}
           >
-            <button className="flex items-center font-semibold border hover:bg-[#254396] border-gray-600 bg-[#001F54] text-white px-4 py-2 rounded-full">
-              <FaListAlt className="inline mr-2" /> Catálogo
+            <button className="flex items-center font-semibold borderpx-4 py-2">
+              <img
+                src="/src/assets/MENU.png"
+                alt="Menu Catalogo"
+                className="h-6 w-8 mr-2"
+              />
             </button>
             {isCatalogOpen && (
               <div className="absolute left-0 top-10 bg-white border rounded-lg shadow-lg p-4 w-48 z-50">
@@ -166,48 +152,78 @@ function Navbar() {
               </div>
             )}
           </div>
-
-          {/* Barra de búsqueda */}
-          <div className="relative flex items-center">
-            <input
-              type="text"
-              placeholder="Buscar productos"
-              className="border rounded-full py-2 px-4 pl-10 w-96 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        {/* Logo */}
+        <div className="text-2xl font-bold">
+          <a href="/">
+            <img
+              src="/src/assets/qq_0000s_0000s_0000_LOGO.png"
+              alt="Luzete Logo"
+              className="h-16 rounded-md"
             />
-            <FaSearch className="absolute left-3.5 top-3 text-gray-400" />
-            <button className="-ml-24 bg-[#001F54] text-white hover:bg-[#254396] border border-gray-600 px-4 py-2 rounded-full">
-              Buscar <FaSearch className="inline ml-2 mb-1 text-white" />
-            </button>
+          </a>
+        </div>
+
+        {/* Navegación principal */}
+        <nav className="flex items-center space-x-6">
+          {/* Barra de búsqueda */}
+          <div className="relative bg-gradient-to-r from-[#7400ad] to-[#d80495] p-[2px] rounded-full">
+            <div className="flex items-center bg-white rounded-full w-96 pl-10">
+              <input
+                type="text"
+                placeholder="Buscar productos"
+                className="w-full bg-transparent focus:outline-none"
+              />
+              <FaSearch className="absolute left-5 text-gray-400" />
+              <button className="bg-[#d80495] text-white px-3 py-1 rounded-full hover:bg-[#b1037d] transition">
+                <FaSearch className="inline mb-1 text-white" />
+              </button>
+            </div>
           </div>
         </nav>
 
         {/* Íconos de usuario */}
         <div className="flex items-center space-x-4">
+          <button
+            className="text-white px-10 py-1 rounded-full bg-gradient-to-r from-[#7400ad] to-[#d80495]"
+            onClick={() => navigate("/auth-screen")}
+          >
+            LOG IN
+          </button>
           <button className="text-gray-600 hover:text-gray-900 hover:scale-150"
             onClick={() => navigate("/me-gusta")}>
-            <FaHeart />
+            <img
+              src="/src/assets/USER.png"
+              alt="Perfil"
+              className="h-4 w-4"
+            />
           </button>
           <button
             className="text-gray-600 hover:text-gray-900 hover:scale-150"
-            onClick={() => navigate("/soporte-tecnico")} // Redirección a Soporte Técnico
+            onClick={() => navigate("/soporte-tecnico")}
           >
-            <FaHeadset />
+            <img
+              src="/src/assets/FAV.png"
+              alt="Me Gusta"
+              className="h-4 w-4"
+            />
           </button>
           <button
             className="text-gray-600 hover:text-gray-900 hover:scale-150"
             onClick={() => navigate("/carrito-compras")}
           >
-            <FaShoppingCart />
+            <img
+              src="/src/assets/BAG.png"
+              alt="Carrito de Compras"
+              className="h-4 w-4"
+            />
           </button>
           <button className="text-gray-600 hover:text-gray-900 hover:scale-150"
             onClick={() => navigate("/perfil")}>
-            <FaUser />
-          </button>
-          <button
-            className="hover:bg-[#254396] bg-[#001F54] text-white border border-gray-600 px-4 py-2 rounded"
-            onClick={() => navigate("/auth-screen")}
-          >
-            Registrarse / Iniciar sesión
+            <img
+              src="/src/assets/CONTACT.png"
+              alt="Ayuda"
+              className="h-4 w-4"
+            />
           </button>
         </div>
       </div>
