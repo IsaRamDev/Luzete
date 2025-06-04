@@ -5,10 +5,10 @@ function Footer() {
   const navigate = useNavigate();
   return (
     <footer className="relative pt-16 pb-10 z-50 px-20">
-<div className="absolute top-0 left-20 right-20 h-[2px] bg-gradient-to-r from-[#7400ad] to-[#d80495]" />
-      <div className="container">
+<div className="absolute top-0 left-20 right-20 h-[3px] bg-gradient-to-r from-[#7400ad] to-[#d80495]" />
+      <div className="container justify-items-center">
         {/* Sección de enlaces */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 justify-items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 w-full justify-items-center">
           {/* Soporte al Cliente */}
           <div>
             <h3 className="">Atención al Cliente</h3>
@@ -124,7 +124,7 @@ function Footer() {
           </p>*/}
         </div>
 
-        <div className="absolute right-20 left-20 h-[2px] bg-gradient-to-r from-[#7400ad] to-[#d80495]" />
+        <div className="absolute right-20 left-20 h-[3px] bg-gradient-to-r from-[#7400ad] to-[#d80495]" />
 
         {/* Enlaces de políticas y redes sociales */}
         <div className="mt-6 pt-4 text-center">
