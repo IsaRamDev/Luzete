@@ -151,7 +151,7 @@ function Navbar() {
             <div className="flex items-center bg-white rounded-full w-96 pl-10">
               <input
                 type="text"
-                placeholder="Buscar productos"
+                placeholder="Buscar productos..."
                 className="w-full bg-transparent focus:outline-none"
               />
               <FaSearch className="absolute left-5 text-gray-400" />
