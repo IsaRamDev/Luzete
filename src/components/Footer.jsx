@@ -10,20 +10,24 @@ function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 w-full justify-items-center">
           {/* Soporte al Cliente */}
           <div>
-            <h3 className="">Atención al Cliente</h3>
             <ul>
               <li>
-                <a onClick={() => navigate("/devoluciones")} className="hover:text-gray-400">
+                <a onClick={() => navigate("/atención-al-cliente")} className="hover:text-[#d80495]">
+                  Atención al Cliente
+                </a>
+              </li>
+              <li>
+                <a onClick={() => navigate("/devoluciones")} className="hover:text-[#d80495]">
                   Devoluciones
                 </a>
               </li>
               <li>
-                <a onClick={() => navigate("/contactanos")} className="hover:text-gray-400">
+                <a onClick={() => navigate("/contactanos")} className="hover:text-[#d80495]">
                   Contactanos
                 </a>
               </li>
               <li>
-                <a onClick={() => navigate("/ayuda")} className="hover:text-gray-400">
+                <a onClick={() => navigate("/ayuda")} className="hover:text-[#d80495]">
                   Ayuda
                 </a>
               </li>
@@ -32,40 +36,50 @@ function Footer() {
 
           {/* Acerca de la tienda */}
           <div>
-            <h3 className="">
-              Acerca de Luzete Fashion
-            </h3>
             <ul>
               <li>
                 {" "}
                 <a
+                  onClick={() => navigate("/acerca-de-luzete-fashion")}
+                  className="hover:text-[#d80495]"
+                >
+                  Acerca de Luzete Fashion
+                </a>
+              </li>
+              <li>
+                {" "}
+                <a
                   onClick={() => navigate("/responsabilidad-social")}
-                  className="hover:text-gray-400"
+                  className="hover:text-[#d80495]"
                 >
                   Responsabilidad social
                 </a>
               </li>
               <li>
-                <a onClick={() => navigate("/quienes-somos")} className="hover:text-gray-400">
+                <a onClick={() => navigate("/quienes-somos")} className="hover:text-[#d80495]">
                   ¿Quiénes somos?
                 </a>
               </li>
-              {/*<li><a onClick={() => navigate("/trabajo" className="hover:text-gray-400">Empleos</a></li>*/}
+              {/*<li><a onClick={() => navigate("/trabajo" className="hover:text-[#d80495]">Empleos</a></li>*/}
             </ul>
           </div>
 
           {/* Promociones */}
           <div>
-            <h3 className="">Promociones</h3>
             <ul>
-              {/*<li><a onClick={() => navigate("/buen-fin" className="hover:text-gray-400">Buen Fin</a></li>*/}
+              {/*<li><a onClick={() => navigate("/buen-fin" className="hover:text-[#d80495]">Buen Fin</a></li>*/}
               <li>
-                <a onClick={() => navigate("/hot-sale")} className="hover:text-gray-400">
+                <a onClick={() => navigate("/promociones")} className=" hover:text-[#d80495]">
+                  Promociones
+                </a>
+              </li>
+              <li>
+                <a onClick={() => navigate("/hot-sale")} className="hover:text-[#d80495]">
                   Hot Sale
                 </a>
               </li>
               <li>
-                <a onClick={() => navigate("/ofertas")} className=" hover:text-gray-400">
+                <a onClick={() => navigate("/ofertas")} className=" hover:text-[#d80495]">
                   Ofertas
                 </a>
               </li>
@@ -75,52 +89,112 @@ function Footer() {
 
         <div className="flex space-x-4 text-sm text-center justify-center mt-8">
           <a
-            onClick={() => navigate("https://www.linkedin.com/company/kaix")}
-            className="hover:scale-150"
+            href="https://www.tiktok.com/@kaix.mx"
+            className="group"
             target="_blank"
-            aria-label="LinkedIn"
+            rel="noopener noreferrer"
+            aria-label="FACEBOOK"
           >
-            <img src="/src/assets/FACEBOOK.png" alt="FACEBOOK" className="h-6 w-6" />
+            <img
+              src="/src/assets/FACEBOOK.png"
+              className="group-hover:hidden w-6 h-6 transition duration-200"
+              alt="FACEBOOK"
+            />
+            <img
+              src="/src/assets/FACEBOOK OVER.png"
+              className="hidden group-hover:block hover:scale-150 w-6 h-6 transition duration-200"
+              alt="FACEBOOK Hover"
+            />
           </a>
           <a
-            onClick={() => navigate("https://www.facebook.com/kaix.mx")}
-            className="hover:scale-150"
+            href="https://www.tiktok.com/@kaix.mx"
+            className="group"
             target="_blank"
-            aria-label="Facebook"
+            rel="noopener noreferrer"
+            aria-label="X"
           >
-            <img src="/src/assets/X.png" alt="X" className="h-6 w-6" />
+            <img
+              src="/src/assets/X.png"
+              className="group-hover:hidden w-6 h-6 transition duration-200"
+              alt="X"
+            />
+            <img
+              src="/src/assets/X OVER.png"
+              className="hidden group-hover:block hover:scale-150 w-6 h-6 transition duration-200"
+              alt="X Hover"
+            />
           </a>
           <a
-            onClick={() => navigate("https://www.instagram.com/kaix.mx/")}
-            className="hover:scale-150"
+            href="https://www.tiktok.com/@kaix.mx"
+            className="group"
             target="_blank"
-            aria-label="Instagram"
+            rel="noopener noreferrer"
+            aria-label="INSTAGRAM"
           >
-            <img src="/src/assets/INSTAGRAM.png" alt="INSTAGRAM" className="h-6 w-6" />
+            <img
+              src="/src/assets/INSTAGRAM.png"
+              className="group-hover:hidden w-6 h-6 transition duration-200"
+              alt="INSTAGRAM"
+            />
+            <img
+              src="/src/assets/INSTAGRAM OVER.png"
+              className="hidden group-hover:block hover:scale-150 w-6 h-6 transition duration-200"
+              alt="INSTAGRAM Hover"
+            />
           </a>
           <a
-            onClick={() => navigate("https://www.tiktok.com/@kaix.mx")}
-            className="hover:scale-150"
+            href="https://www.tiktok.com/@kaix.mx"
+            className="group"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YOUTUBE"
+          >
+            <img
+              src="/src/assets/YOUTUBE.png"
+              className="group-hover:hidden w-6 h-6 transition duration-200"
+              alt="YOUTUBE"
+            />
+            <img
+              src="/src/assets/YOUTUBE OVER.png"
+              className="hidden group-hover:block hover:scale-150 w-6 h-6 transition duration-200"
+              alt="YOUTUBE Hover"
+            />
+          </a>
+          <a
+            href="https://www.tiktok.com/@kaix.mx"
+            className="group"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WHATSAPP"
+          >
+            <img
+              src="/src/assets/WHATSAPP.png"
+              className="group-hover:hidden w-6 h-6 transition duration-200"
+              alt="WHATSAPP"
+            />
+            <img
+              src="/src/assets/WHATSAPP OVER.png"
+              className="hidden group-hover:block hover:scale-150 w-6 h-6 transition duration-200"
+              alt="WHATSAPP Hover"
+            />
+          </a>
+          <a
+            href="https://www.tiktok.com/@kaix.mx"
+            className="group"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="TikTok"
           >
-            <img src="/src/assets/YOUTUBE.png" alt="YOUTUBE" className="h-6 w-6" />
-          </a>
-          <a
-            onClick={() => navigate("https://www.instagram.com/kaix.mx/")}
-            className="hover:scale-150"
-            target="_blank"
-            aria-label="Instagram"
-          >
-            <img src="/src/assets/WATSAP.png" alt="WHATSAPP" className="h-6 w-6" />
-          </a>
-          <a
-            onClick={() => navigate("https://www.tiktok.com/@kaix.mx")}
-            className="hover:scale-150"
-            target="_blank"
-            aria-label="TikTok"
-          >
-            <img src="/src/assets/TIKTOK.png" alt="TIKTOK" className="h-6 w-6" />
+            <img
+              src="/src/assets/TIKTOK.png"
+              className="group-hover:hidden w-6 h-6 transition duration-200"
+              alt="TikTok"
+            />
+            <img
+              src="/src/assets/TIKTOK OVER.png"
+              className="hidden group-hover:block hover:scale-150 w-6 h-6 transition duration-200"
+              alt="TikTok Hover"
+            />
           </a>
         </div>
         {/* Información de contacto */}
@@ -129,7 +203,7 @@ function Footer() {
             Comentarios y sugerencias:{" "}
             <a
               onClick={() => navigate("/contactanos")}
-              className="hover:text-gray-400"
+              className="text-[#d80495] font-bold underline"
             >
               contacto@luzetefashion.com
             </a>

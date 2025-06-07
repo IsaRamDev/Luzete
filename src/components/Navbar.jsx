@@ -98,12 +98,12 @@ function Navbar() {
           {isCatalogOpen && (
             <div className="absolute top-24 -left-6 bg-white rounded-lg shadow-lg z-50 px-10 py-5">
               {/* Tabs horizontales */}
-              <ul className="flex">
+              <ul className="flex border-b-2">
                 {Object.keys(categories).map((key) => (
                   <li
                     key={key}
                     onMouseEnter={() => handleSubMenuMouseEnter(key)}
-                    className={`px-6 py-3 cursor-pointer hover:bg-[#001F54] hover:text-white transition ${openSubMenu === key ? "bg-[#001F54] text-white" : "text-gray-700"
+                    className={`px-6 py-3 cursor-pointer transition ${openSubMenu === key ? "text-[#d80495] font-bold" : "text-gray-700"
                       }`}
                   >
                     {key.charAt(0).toUpperCase() + key.slice(1)}
@@ -121,7 +121,7 @@ function Navbar() {
                           href={`/catalogo/${openSubMenu}/${category
                             .toLowerCase()
                             .replace(/\s+/g, "-")}`}
-                          className="block text-gray-600 hover:text-white hover:bg-[#001F54] px-3 py-1 rounded transition"
+                          className="block text-gray-600 hover:text-[#d80495] hover:font-bold px-3 py-1 rounded transition"
                         >
                           {category}
                         </a>
@@ -147,7 +147,7 @@ function Navbar() {
         {/* Navegación principal */}
         <nav className="flex items-center space-x-6">
           {/* Barra de búsqueda */}
-          <div className="relative bg-gradient-to-r from-[#7400ad] to-[#d80495] p-[2px] rounded-full">
+          <div className="relative bg-gradient-to-r from-[#7400ad] to-[#d80495] p-[2px] rounded-full transition hover:scale-110 duration-200">
             <div className="flex items-center bg-white rounded-full w-96 pl-10">
               <input
                 type="text"
@@ -155,7 +155,7 @@ function Navbar() {
                 className="w-full bg-transparent focus:outline-none"
               />
               <FaSearch className="absolute left-5 text-gray-400" />
-              <button className="bg-[#d80495] text-white px-3 py-1 rounded-full hover:bg-[#b1037d] transition">
+              <button className="bg-[#d80495] text-white px-3 py-1 rounded-full hover:bg-[#7400ad] transition hover:scale-110 duration-200">
                 <FaSearch className="inline mb-1 text-white" />
               </button>
             </div>
@@ -165,45 +165,61 @@ function Navbar() {
         {/* Íconos de usuario */}
         <div className="flex items-center space-x-4">
           <button
-            className="text-white px-10 py-1 rounded-full bg-gradient-to-r from-[#7400ad] to-[#d80495]"
+            className="text-white px-10 py-1 rounded-full bg-gradient-to-r from-[#7400ad] to-[#d80495] hover:scale-125 transition duration-200"
             onClick={() => navigate("/auth-screen")}
           >
             LOG IN
           </button>
-          <button className="text-gray-600 hover:text-gray-900 hover:scale-150"
-            onClick={() => navigate("/me-gusta")}>
+          <button className="text-gray-600 hover:text-gray-900 group"
+            onClick={() => navigate("/perfil")}>
             <img
               src="/src/assets/USER.png"
-              alt="Perfil"
-              className="h-4 w-4"
+              className="group-hover:hidden w-4 h-4 transition duration-200"
+              alt="USER"
+            />
+            <img
+              src="/src/assets/USER OVER.png"
+              className="hidden group-hover:block hover:scale-110 w-6 h-6 transition duration-200"
+              alt="USER Hover"
             />
           </button>
-          <button
-            className="text-gray-600 hover:text-gray-900 hover:scale-150"
-            onClick={() => navigate("/soporte-tecnico")}
-          >
+          <button className="text-gray-600 hover:text-gray-900 group"
+            onClick={() => navigate("/me-gusta")}>
             <img
               src="/src/assets/FAV.png"
-              alt="Me Gusta"
-              className="h-4 w-4"
+              className="group-hover:hidden w-4 h-4 transition duration-200"
+              alt="FAV"
+            />
+            <img
+              src="/src/assets/FAV OVER.png"
+              className="hidden group-hover:block hover:scale-110 w-6 h-6 transition duration-200"
+              alt="FAV Hover"
             />
           </button>
-          <button
-            className="text-gray-600 hover:text-gray-900 hover:scale-150"
-            onClick={() => navigate("/carrito-compras")}
-          >
+          <button className="text-gray-600 hover:text-gray-900 group"
+            onClick={() => navigate("/perfil")}>
             <img
               src="/src/assets/BAG.png"
-              alt="Carrito de Compras"
-              className="h-4 w-4"
+              className="group-hover:hidden w-4 h-4 transition duration-200"
+              alt="BAG"
+            />
+            <img
+              src="/src/assets/BAG OVER.png"
+              className="hidden group-hover:block hover:scale-110 w-6 h-6 transition duration-200"
+              alt="BAG Hover"
             />
           </button>
-          <button className="text-gray-600 hover:text-gray-900 hover:scale-150"
+          <button className="text-gray-600 hover:text-gray-900 group"
             onClick={() => navigate("/perfil")}>
             <img
               src="/src/assets/CONTACT.png"
-              alt="Ayuda"
-              className="h-4 w-4"
+              className="group-hover:hidden w-4 h-4 transition duration-200"
+              alt="CONTACT"
+            />
+            <img
+              src="/src/assets/CONTACT OVER.png"
+              className="hidden group-hover:block hover:scale-110 w-6 h-6 transition duration-200"
+              alt="CONTACT Hover"
             />
           </button>
         </div>
