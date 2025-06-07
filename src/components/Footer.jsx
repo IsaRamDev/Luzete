@@ -1,11 +1,10 @@
-import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 function Footer() {
   const navigate = useNavigate();
   return (
-    <footer className="relative pt-16 pb-10 z-50 px-20">
-<div className="absolute top-0 left-20 right-20 h-[3px] bg-gradient-to-r from-[#7400ad] to-[#d80495]" />
+    <footer className="relative pt-8 pb-10 z-50 px-20">
+      <div className="absolute top-0 left-20 right-20 h-[3px] bg-gradient-to-r from-[#7400ad] to-[#d80495]" />
       <div className="container justify-items-center">
         {/* Sección de enlaces */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 w-full justify-items-center">
@@ -81,7 +80,7 @@ function Footer() {
             target="_blank"
             aria-label="LinkedIn"
           >
-            <FaInstagram />
+            <img src="/src/assets/FACEBOOK.png" alt="FACEBOOK" className="h-6 w-6" />
           </a>
           <a
             onClick={() => navigate("https://www.facebook.com/kaix.mx")}
@@ -89,7 +88,7 @@ function Footer() {
             target="_blank"
             aria-label="Facebook"
           >
-            <FaFacebook />
+            <img src="/src/assets/X.png" alt="X" className="h-6 w-6" />
           </a>
           <a
             onClick={() => navigate("https://www.instagram.com/kaix.mx/")}
@@ -97,7 +96,7 @@ function Footer() {
             target="_blank"
             aria-label="Instagram"
           >
-            <FaTiktok />
+            <img src="/src/assets/INSTAGRAM.png" alt="INSTAGRAM" className="h-6 w-6" />
           </a>
           <a
             onClick={() => navigate("https://www.tiktok.com/@kaix.mx")}
@@ -105,7 +104,23 @@ function Footer() {
             target="_blank"
             aria-label="TikTok"
           >
-            <FaYoutube />
+            <img src="/src/assets/YOUTUBE.png" alt="YOUTUBE" className="h-6 w-6" />
+          </a>
+          <a
+            onClick={() => navigate("https://www.instagram.com/kaix.mx/")}
+            className="hover:scale-150"
+            target="_blank"
+            aria-label="Instagram"
+          >
+            <img src="/src/assets/WATSAP.png" alt="WHATSAPP" className="h-6 w-6" />
+          </a>
+          <a
+            onClick={() => navigate("https://www.tiktok.com/@kaix.mx")}
+            className="hover:scale-150"
+            target="_blank"
+            aria-label="TikTok"
+          >
+            <img src="/src/assets/TIKTOK.png" alt="TIKTOK" className="h-6 w-6" />
           </a>
         </div>
         {/* Información de contacto */}

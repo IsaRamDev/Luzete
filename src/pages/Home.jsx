@@ -214,8 +214,8 @@ export default function Home() {
                   alt={`Descuento ${descuento.id}`}
                   className="w-full object-cover"
                 />
-                <div className="mt-2">
-                  <p className="">{descuento.name}</p>
+                <div className="my-2 pl-4 text-sm">
+                  <p className="text-base">{descuento.name}</p>
                   <p className="text-[#ff1654] font-bold">{descuento.price}<label className="ml-1 p-0.5 bg-[#ff1654] text-white">-30%</label></p>
                   <p className="font-extrabold line-through">{descuento.vendor}</p>
                 </div>
