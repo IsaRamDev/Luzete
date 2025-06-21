@@ -166,12 +166,12 @@ function Navbar() {
         <div className="flex items-center space-x-4">
           <button
             className="text-white px-10 py-1 rounded-full bg-gradient-to-r from-[#7400ad] to-[#d80495] hover:scale-125 transition duration-200"
-            onClick={() => navigate("/auth-screen")}
+            onClick={() => navigate("/auth-screen")} href="#"
           >
             LOG IN
           </button>
           <button className="text-gray-600 hover:text-gray-900 group"
-            onClick={() => navigate("/perfil")}>
+            onClick={() => navigate("/perfil")} href="#">
             <img
               src="/src/assets/USER.png"
               className="group-hover:hidden w-4 h-4 transition duration-200"
@@ -184,7 +184,7 @@ function Navbar() {
             />
           </button>
           <button className="text-gray-600 hover:text-gray-900 group"
-            onClick={() => navigate("/me-gusta")}>
+            onClick={() => navigate("/me-gusta")} href="#">
             <img
               src="/src/assets/FAV.png"
               className="group-hover:hidden w-4 h-4 transition duration-200"
@@ -197,7 +197,7 @@ function Navbar() {
             />
           </button>
           <button className="text-gray-600 hover:text-gray-900 group"
-            onClick={() => navigate("/perfil")}>
+            onClick={() => navigate("/carrito-compras")} href="#">
             <img
               src="/src/assets/BAG.png"
               className="group-hover:hidden w-4 h-4 transition duration-200"
@@ -210,7 +210,7 @@ function Navbar() {
             />
           </button>
           <button className="text-gray-600 hover:text-gray-900 group"
-            onClick={() => navigate("/perfil")}>
+            onClick={() => navigate("/soporte-tecnico")} href="#">
             <img
               src="/src/assets/CONTACT.png"
               className="group-hover:hidden w-4 h-4 transition duration-200"

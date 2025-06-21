@@ -12,22 +12,17 @@ function Footer() {
           <div>
             <ul>
               <li>
-                <a onClick={() => navigate("/atención-al-cliente")} className="hover:text-[#d80495]">
-                  Atención al Cliente
-                </a>
-              </li>
-              <li>
-                <a onClick={() => navigate("/devoluciones")} className="hover:text-[#d80495]">
+                <a onClick={() => navigate("/devoluciones")} href="#" className="hover:text-[#d80495]">
                   Devoluciones
                 </a>
               </li>
               <li>
-                <a onClick={() => navigate("/contactanos")} className="hover:text-[#d80495]">
+                <a onClick={() => navigate("/contactanos")} href="#" className="hover:text-[#d80495]">
                   Contactanos
                 </a>
               </li>
               <li>
-                <a onClick={() => navigate("/ayuda")} className="hover:text-[#d80495]">
+                <a onClick={() => navigate("/ayuda")} href="#" className="hover:text-[#d80495]">
                   Ayuda
                 </a>
               </li>
@@ -40,23 +35,14 @@ function Footer() {
               <li>
                 {" "}
                 <a
-                  onClick={() => navigate("/acerca-de-luzete-fashion")}
-                  className="hover:text-[#d80495]"
-                >
-                  Acerca de Luzete Fashion
-                </a>
-              </li>
-              <li>
-                {" "}
-                <a
-                  onClick={() => navigate("/responsabilidad-social")}
+                  onClick={() => navigate("/responsabilidad-social")} href="#"
                   className="hover:text-[#d80495]"
                 >
                   Responsabilidad social
                 </a>
               </li>
               <li>
-                <a onClick={() => navigate("/quienes-somos")} className="hover:text-[#d80495]">
+                <a onClick={() => navigate("/quienes-somos")} href="#" className="hover:text-[#d80495]">
                   ¿Quiénes somos?
                 </a>
               </li>
@@ -69,17 +55,12 @@ function Footer() {
             <ul>
               {/*<li><a onClick={() => navigate("/buen-fin" className="hover:text-[#d80495]">Buen Fin</a></li>*/}
               <li>
-                <a onClick={() => navigate("/promociones")} className=" hover:text-[#d80495]">
+                <a onClick={() => navigate("/")} href="#" className=" hover:text-[#d80495]">
                   Promociones
                 </a>
               </li>
               <li>
-                <a onClick={() => navigate("/hot-sale")} className="hover:text-[#d80495]">
-                  Hot Sale
-                </a>
-              </li>
-              <li>
-                <a onClick={() => navigate("/ofertas")} className=" hover:text-[#d80495]">
+                <a onClick={() => navigate("/")} href="#descuentos" className=" hover:text-[#d80495]">
                   Ofertas
                 </a>
               </li>
@@ -202,7 +183,7 @@ function Footer() {
           <p className="text-sm mb-4">
             Comentarios y sugerencias:{" "}
             <a
-              onClick={() => navigate("/contactanos")}
+              onClick={() => navigate("/contactanos")} href="#"
               className="text-[#d80495] font-bold underline"
             >
               contacto@luzetefashion.com

@@ -161,7 +161,7 @@ export default function DetalleDescuento() {
             <button
               onClick={() => toggleLike(descuento)}
               className={`absolute top-6 right-6 p-2 rounded-full bg-white shadow-md hover:bg-gray-100 ${
-                liked ? "text-red-600" : "text-gray-500"
+                liked ? "text-[#ff1654]" : "text-gray-500"
               }`}            >
               <FaHeart className="w-6 h-6" />
             </button>

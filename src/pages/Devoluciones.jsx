@@ -144,7 +144,7 @@ export default function PantallaDevoluciones() {
 
           <div className="mt-6 text-center">
             <button
-              onClick={() => navigate("/perfil")}
+              onClick={() => navigate("/perfil")} href="#"
               className="px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition duration-300"
             >
               Volver al Perfil

@@ -23,7 +23,7 @@ export default function Descuentos() {
   const currentItems = descuentos.slice(startIndex, endIndex);
 
   return (
-    <div className="mb-20 px-20">
+    <div className="mb-20 px-20" id="descuentos">
       <h2 className="text-3xl font-semibold mb-4 text-[#ff1654]">OFERTAS hasta 50%</h2>
       <div className="relative">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">

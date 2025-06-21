@@ -47,7 +47,7 @@ export default function ListaDeMeGusta() {
               Aún no has agregado productos a tu lista de Me Gusta.
             </p>
             <button
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/")} href="#"
               className="px-6 py-3 bg-[#001F54] text-white rounded-lg hover:bg-[#003080] transition duration-300"
             >
               Explorar Productos
@@ -57,7 +57,7 @@ export default function ListaDeMeGusta() {
 
         <div className="mt-10 text-center">
           <button
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/")} href="#"
             className="px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition duration-300"
           >
             Volver a Inicio

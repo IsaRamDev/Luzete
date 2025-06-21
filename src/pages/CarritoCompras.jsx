@@ -106,7 +106,7 @@ export default function CarritoDeCompras() {
               </span>
             </div>
             <button
-              onClick={() => navigate("/checkout")}
+              onClick={() => navigate("/checkout")} href="#"
               className="w-full px-4 py-2 mt-4 bg-[#001F54] text-white rounded-lg hover:bg-[#003080] transition duration-300"
             >
               Proceder al Pago
@@ -117,7 +117,7 @@ export default function CarritoDeCompras() {
         <div className="text-center">
           <p className="text-lg text-gray-700 mb-6">Tu carrito está vacío.</p>
           <button
-            onClick={() => navigate("/productos")}
+            onClick={() => navigate("/productos")} href="#"
             className="px-6 py-3 bg-[#001F54] text-white rounded-lg hover:bg-[#003080] transition duration-300"
           >
             Ir a Productos

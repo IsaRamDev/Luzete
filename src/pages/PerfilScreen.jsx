@@ -166,7 +166,7 @@ export default function PerfilUsuario() {
                         Editar Perfil
                       </button>
                       <button
-                        onClick={() => navigate("/logout")}
+                        onClick={() => navigate("/logout")} href="#"
                         className="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
                       >
                         Cerrar Sesión
