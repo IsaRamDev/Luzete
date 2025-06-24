@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 function Footer() {
   const navigate = useNavigate();
   return (
-    <footer className="relative pt-8 pb-10 z-50 px-20">
+    <footer className="relative pt-8 pb-10 z-50 px-20 justify-items-center">
       <div className="absolute top-0 left-20 right-20 h-[3px] bg-gradient-to-r from-[#7400ad] to-[#d80495]" />
       <div className="container justify-items-center">
         {/* Sección de enlaces */}
@@ -201,12 +201,12 @@ function Footer() {
           <div className="text-xs mt-3">
             <p>© 2025 Luzete Fashion</p>
           </div>
-          {/* <a onClick={() => navigate("/terminos-y-condiciones")} className="text-xs mt-4 mr-3 hover:text-gray-400">
+          <a onClick={() => navigate("/terminos-y-condiciones")} className="text-xs mt-4 mr-3 hover:text-[#d80495]">
             Términos y condiciones
           </a>|
-          <a onClick={() => navigate("/aviso-de-privacidad")} className="text-xs mt-4 ml-3 hover:text-gray-400">
+          <a onClick={() => navigate("/aviso-de-privacidad")} className="text-xs mt-4 ml-3 hover:text-[#d80495]">
              Aviso de privacidad
-          </a> */}
+          </a>
         </div>
       </div>
     </footer>
