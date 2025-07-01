@@ -6,9 +6,9 @@ function QuienesSomos() {
         <h1 className="text-4xl font-bold text-center text-[#7400ad] mb-16">
           ¿Quiénes Somos?
         </h1>
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-16 items-center p-20">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-16 items-center p-32">
           <img
-            src="https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg"
+            src="/src/assets/LUZETE MAQUETA (1).jpg"
             alt="Profesionales de la moda"
             className="absolute w-full h-full object-cover z-0"
           />

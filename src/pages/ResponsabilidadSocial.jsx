@@ -6,9 +6,9 @@ function ResponsabilidadSocial() {
           Responsabilidad Social
         </h1>
         
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-16 items-center p-20">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-16 items-center p-32">
           <img
-            src="https://cdn.pixabay.com/photo/2023/09/26/06/45/bride-8276613_640.jpg"
+            src="/src/assets/LUZETE MAQUETA (2).jpg"
             alt="Comercio Local en México"
             className="absolute w-full h-full object-cover z-0"
           />

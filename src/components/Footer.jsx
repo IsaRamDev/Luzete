@@ -205,7 +205,7 @@ function Footer() {
             Términos y condiciones
           </a>|
           <a onClick={() => navigate("/aviso-de-privacidad")} className="text-xs mt-4 ml-3 hover:text-[#d80495]">
-             Aviso de privacidad
+            Aviso de privacidad
           </a>
         </div>
       </div>
