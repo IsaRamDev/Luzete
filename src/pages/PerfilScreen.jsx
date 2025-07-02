@@ -26,17 +26,87 @@ export default function PerfilUsuario() {
       setPedidos([
         {
           id: 1,
-          fecha: "2023-12-01", // Actualiza esta fecha según tus pruebas
+          fecha: "2023-12-01",
           estado: "Entregado",
-          articulos: ["Camiseta", "Pantalón"],
+          pedidoTotal: 59.99,
           devolucionDisponible: isBefore(new Date(), subMonths(new Date("2024-12-01"), -2)),
+          articulos: [
+            {
+              nombre: "Camiseta",
+              imagen: "/src/assets/PRODUCTO (2).png",
+            },
+            {
+              nombre: "Pantalón",
+              imagen: "/src/assets/PRODUCTO (3).png",
+            },
+          ],
         },
         {
           id: 2,
           fecha: "2023-09-01",
           estado: "Entregado",
-          articulos: ["Zapatos"],
+          pedidoTotal: 89.99,
           devolucionDisponible: isBefore(new Date(), subMonths(new Date("2024-09-01"), -2)),
+          articulos: [
+            {
+              nombre: "Zapatos",
+              imagen: "/src/assets/PRODUCTO (2).png",
+            },
+            {
+              nombre: "Bolso",
+              imagen: "/src/assets/PRODUCTO (3).png",
+            },
+            {
+              nombre: "Gafas de Sol",
+              imagen: "/src/assets/PRODUCTO (4).png",
+            },
+            {
+              nombre: "Sombrero",
+              imagen: "/src/assets/PRODUCTO (5).png",
+            },
+          ],
+        },
+        {
+          id: 3,
+          fecha: "2023-12-01",
+          estado: "Entregado",
+          pedidoTotal: 59.99,
+          devolucionDisponible: isBefore(new Date(), subMonths(new Date("2024-12-01"), -2)),
+          articulos: [
+            {
+              nombre: "Camiseta",
+              imagen: "/src/assets/PRODUCTO (2).png",
+            },
+            {
+              nombre: "Pantalón",
+              imagen: "/src/assets/PRODUCTO (3).png",
+            },
+          ],
+        },
+        {
+          id: 4,
+          fecha: "2023-09-01",
+          estado: "Entregado",
+          pedidoTotal: 89.99,
+          devolucionDisponible: isBefore(new Date(), subMonths(new Date("2024-09-01"), -2)),
+          articulos: [
+            {
+              nombre: "Zapatos",
+              imagen: "/src/assets/PRODUCTO (2).png",
+            },
+            {
+              nombre: "Bolso",
+              imagen: "/src/assets/PRODUCTO (3).png",
+            },
+            {
+              nombre: "Gafas de Sol",
+              imagen: "/src/assets/PRODUCTO (4).png",
+            },
+            {
+              nombre: "Sombrero",
+              imagen: "/src/assets/PRODUCTO (5).png",
+            },
+          ],
         },
       ]);
       setLoading(false);
@@ -78,33 +148,32 @@ export default function PerfilUsuario() {
     return (
       <div className="bg-gray-100 py-16">
         <div className="container mx-auto px-6 max-w-2xl text-center">
-          <p className="text-lg font-bold text-[#001F54]">Cargando...</p>
+          <p className="text-lg font-bold text-[#7400ad]">Cargando...</p>
         </div>
       </div>
     );
   }
-
+  console.log("Profile:", profile);
+  console.log("Pedidos:", pedidos);
   return (
     <div className="bg-gray-100 py-16">
       <div className="container mx-auto px-6 max-w-2xl">
-        <div className="bg-white rounded-lg shadow-md p-10">
+        <div className="bg-white rounded-lg shadow-md p-10 border border-gray-200">
           <div className="flex justify-center mb-8">
             <button
-              className={`w-1/2 py-2 text-center font-bold text-lg ${
-                activeTab === "perfil"
-                  ? "border-b-2 border-[#001F54] text-[#001F54]"
-                  : "text-gray-500"
-              }`}
+              className={`w-1/2 py-2 text-center font-bold text-lg ${activeTab === "perfil"
+                ? "border-b-2 border-[#7400ad] text-[#7400ad]"
+                : "text-gray-500"
+                }`}
               onClick={() => setActiveTab("perfil")}
             >
               Perfil
             </button>
             <button
-              className={`w-1/2 py-2 text-center font-bold text-lg ${
-                activeTab === "pedidos"
-                  ? "border-b-2 border-[#001F54] text-[#001F54]"
-                  : "text-gray-500"
-              }`}
+              className={`w-1/2 py-2 text-center font-bold text-lg ${activeTab === "pedidos"
+                ? "border-b-2 border-[#7400ad] text-[#7400ad]"
+                : "text-gray-500"
+                }`}
               onClick={() => setActiveTab("pedidos")}
             >
               Pedidos
@@ -158,16 +227,16 @@ export default function PerfilUsuario() {
                       <p className="text-gray-700">{profile.contraseña}</p>
                     </div>
 
-                    <div className="flex justify-between mt-6">
+                    <div className="flex justify-between mt-6 px-10">
                       <button
                         onClick={handleEdit}
-                        className="px-6 py-3 bg-[#001F54] text-white rounded-lg hover:bg-[#003080] transition duration-300"
+                        className="px-6 py-3 border-2 text-gray-600 border-gray-600 rounded-full hover:bg-[#003080] transition duration-300"
                       >
                         Editar Perfil
                       </button>
                       <button
                         onClick={() => navigate("/logout")} href="#"
-                        className="px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
+                        className="px-6 py-3 bg-red-500 text-white bg-gradient-to-r from-[#7400ad] to-[#d80495] rounded-full hover:bg-red-600 transition duration-300"
                       >
                         Cerrar Sesión
                       </button>
@@ -250,23 +319,48 @@ export default function PerfilUsuario() {
             )
           ) : (
             <>
-              <h2 className="text-2xl font-bold mb-4">Pedidos</h2>
               {pedidos.length > 0 ? (
-                <ul className="divide-y divide-gray-200">
+                <ul className="space-y-4">
                   {pedidos.map((pedido) => (
-                    <li key={pedido.id} className="py-4">
-                      <p className="text-lg font-medium">
-                        Pedido #{pedido.id} - {pedido.fecha}
-                      </p>
-                      <p className="text-gray-700">Estado: {pedido.estado}</p>
-                      <p className="text-gray-700">
-                        Artículos: {pedido.articulos.join(", ")}
-                      </p>
-                      {pedido.devolucionDisponible && (
-                        <p className="text-green-600 mt-2">
-                          Devolución disponible. <a href="/devoluciones" className="underline">Iniciar devolución</a>
+                    <li key={pedido.id} className="border border-gray-300 rounded-lg py-4 px-6 flex">
+                      <div className="flex-col">
+                        <p className="text-lg font-medium text-gray-600 mb-1">
+                          {pedido.estado}
                         </p>
-                      )}
+                        <p className="text-gray-600 text-sm">{pedido.articulos.length} productos</p>
+                        <p className="text-gray-600 text-sm">
+                          pedido realizado el {new Date(pedido.fecha).toLocaleDateString()}
+                        </p>
+                        <p className="text-gray-600 text-sm">
+                          Pedido # {pedido.id}
+                        </p>
+                        <p className="text-lg font-medium text-gray-600 mt-2">
+                          MXN ${pedido.pedidoTotal}
+                        </p>
+                        {pedido.devolucionDisponible && (
+                          <p className="text-green-600 mt-2">
+                            Devolución disponible. <a href="/devoluciones" className="underline">Iniciar devolución</a>
+                          </p>
+                        )}
+                      </div>
+                      <div className="flex flex-row items-center ml-auto space-x-1">
+                        {pedido.articulos.slice(0, 3).map((articulo, index) => (
+                          <img
+                            key={index}
+                            src={articulo.imagen}
+                            alt={articulo.nombre}
+                            className="w-18 h-20 object-cover0"
+                          />
+                        ))}
+
+                        {pedido.articulos.length > 3 && (
+                          <div className="flex items-center justify-center p-3 text-gray-600 font-semibold text-sm">
+                            +{pedido.articulos.length - 3}
+                          </div>
+                        )}
+                      </div>
+
+
                     </li>
                   ))}
                 </ul>

@@ -1,12 +1,12 @@
 import {
   FaSearch,
 } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
-  const [openSubMenu, setOpenSubMenu] = useState("MUJER"); // Controla qué submenú está abierto
+  const [openSubMenu, setOpenSubMenu] = useState("mujer"); // Controla qué submenú está abierto
   const navigate = useNavigate();
   let catalogTimeout;
 
@@ -18,7 +18,7 @@ function Navbar() {
   const handleCatalogMouseLeave = () => {
     catalogTimeout = setTimeout(() => {
       setIsCatalogOpen(false);
-      setOpenSubMenu("MUJER"); // Cierra todos los submenús
+      setOpenSubMenu("mujer"); // Cierra todos los submenús
     }, 300);
   };
 
@@ -28,7 +28,7 @@ function Navbar() {
   };
 
   const categories = {
-    MUJER: [
+    mujer: [
       "Vestidos",
       "Conjuntos",
       "Blusas",
@@ -40,7 +40,7 @@ function Navbar() {
       "Suéter",
       "Accesorios",
     ],
-    HOMBRE: [
+    hombre: [
       "Playera",
       "Conjuntos",
       "Pantalones",
@@ -50,7 +50,7 @@ function Navbar() {
       "Chamarra",
       "Accesorios",
     ],
-    NIÑA: [
+    niña: [
       "Vestidos",
       "Conjuntos",
       "Blusas",
@@ -62,7 +62,7 @@ function Navbar() {
       "Suéter",
       "Accesorios",
     ],
-    NIÑO: [
+    niño: [
       "Playera",
       "Conjuntos",
       "Pantalones",
@@ -73,6 +73,37 @@ function Navbar() {
       "Accesorios",
     ],
   };
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchHistory, setSearchHistory] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  // Cargar historial desde localStorage
+  useEffect(() => {
+    const history = JSON.parse(localStorage.getItem("searchHistory")) || [];
+    setSearchHistory(history);
+  }, []);
+
+  const saveSearch = (term) => {
+    if (!term.trim()) return;
+
+    let updatedHistory = [term, ...searchHistory.filter(item => item !== term)];
+    if (updatedHistory.length > 10) updatedHistory = updatedHistory.slice(0, 10);
+    setSearchHistory(updatedHistory);
+    localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
+  };
+
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      saveSearch(searchTerm);
+      // Aquí podrías navegar a los resultados si tienes una página de búsqueda
+      // navigate(`/busqueda?q=${encodeURIComponent(searchTerm)}`);
+      setShowSuggestions(false);
+    }
+  };
+
+  const filteredSuggestions = searchHistory.filter((item) =>
+    item.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
@@ -143,21 +174,49 @@ function Navbar() {
             />
           </a>
         </div>
-
         {/* Navegación principal */}
         <nav className="flex items-center space-x-6">
           {/* Barra de búsqueda */}
           <div className="relative bg-gradient-to-r from-[#7400ad] to-[#d80495] p-[2px] rounded-full transition hover:scale-110 duration-200">
-            <div className="flex items-center bg-white rounded-full w-96 pl-10">
+            <div className="flex items-center bg-white rounded-full w-96 pl-10 relative">
               <input
                 type="text"
                 placeholder="Buscar productos..."
                 className="w-full bg-transparent focus:outline-none"
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  setShowSuggestions(true);
+                }}
+                onFocus={() => setShowSuggestions(true)}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 200)} // Para que sí funcione el click en sugerencia
               />
               <FaSearch className="absolute left-5 text-gray-400" />
-              <button className="bg-[#d80495] text-white px-3 py-1 rounded-full hover:bg-[#7400ad] transition hover:scale-110 duration-200">
+              <button
+                className="bg-[#d80495] text-white px-3 py-1 rounded-full hover:bg-[#7400ad] transition hover:scale-110 duration-200"
+                onClick={handleSearch}
+              >
                 <FaSearch className="inline mb-1 text-white" />
               </button>
+
+              {/* SUGERENCIAS */}
+              {showSuggestions && filteredSuggestions.length > 0 && (
+                <ul className="absolute top-12 left-0 w-full bg-white shadow-lg rounded-md max-h-60 overflow-y-auto z-50">
+                  {filteredSuggestions.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100 text-sm"
+                      onClick={() => {
+                        setSearchTerm(item);
+                        handleSearch();
+                      }}
+                    >
+                      <FaSearch className="text-gray-500 mr-2" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </nav>

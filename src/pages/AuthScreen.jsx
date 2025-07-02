@@ -22,7 +22,6 @@ function AuthScreen() {
 
     // Simular el proceso de registro/inicio de sesión
     setTimeout(() => {
-      console.log(isRegister ? 'Registrado con éxito' : 'Sesión iniciada');
       setEnviando(false);
       setFormData({
         nombre: '',
@@ -36,12 +35,12 @@ function AuthScreen() {
   return (
     <div className="bg-gray-100 py-16">
       <div className="container mx-auto px-6 max-w-md">
-        <div className="bg-white rounded-lg shadow-md p-10">
+        <div className="bg-white rounded-lg shadow-md py-10 p-16">
           <div className="flex justify-center mb-8">
             <button
               className={`w-1/2 py-2 text-center font-bold text-lg ${
                 isRegister
-                  ? 'border-b-2 border-[#001F54] text-[#001F54]'
+                  ? 'border-b-2 border-[#7400ad] text-[#7400ad]'
                   : 'text-gray-500'
               }`}
               onClick={() => setIsRegister(true)}
@@ -51,7 +50,7 @@ function AuthScreen() {
             <button
               className={`w-1/2 py-2 text-center font-bold text-lg ${
                 !isRegister
-                  ? 'border-b-2 border-[#001F54] text-[#001F54]'
+                  ? 'border-b-2 border-[#7400ad] text-[#7400ad]'
                   : 'text-gray-500'
               }`}
               onClick={() => setIsRegister(false)}
@@ -59,9 +58,6 @@ function AuthScreen() {
               Iniciar Sesión
             </button>
           </div>
-          <h1 className="text-2xl font-bold text-center text-[#001F54] mb-6">
-            {isRegister ? 'Crea tu Cuenta' : 'Inicia Sesión'}
-          </h1>
           <form onSubmit={handleSubmit} className="space-y-6">
             {isRegister && (
               <div>
@@ -82,7 +78,7 @@ function AuthScreen() {
             )}
             <div>
               <label htmlFor="email" className="block text-gray-700 font-medium">
-                Correo Electrónico
+                E-mail
               </label>
               <input
                 type="email"
@@ -107,7 +103,7 @@ function AuthScreen() {
                 onChange={handleChange}
                 required
                 placeholder="Escribe tu contraseña"
-                className="border border-gray-300 rounded-lg px-4 py-2 w-full"
+                className="border border-gray-300 rounded-lg px-4 py-2 w-full mb-10"
               />
             </div>
             {isRegister && (
@@ -127,30 +123,35 @@ function AuthScreen() {
                 />
               </div>
             )}
-            <div>
+            {!isRegister && (
+            <p className="text-gray-600 text-center">
+              ¿Has olvidado tu contraseña?{' '}
+            </p>
+          )}
+            <div className='flex justify-center'>
               <button
                 type="submit"
                 className={`${
-                  enviando ? 'bg-gray-400' : 'bg-[#001F54]'
-                } text-white px-6 py-3 rounded-lg hover:bg-[#003080] transition duration-300 w-full`}
+                  enviando ? 'bg-gray-400' : 'bg-gradient-to-r from-[#7400ad] to-[#d80495]'
+                } text-white px-8 py-2 rounded-full text-xl hover:bg-[#003080] transition duration-300`}
                 disabled={enviando}
               >
                 {enviando
                   ? 'Procesando...'
                   : isRegister
-                  ? 'Registrarse'
-                  : 'Iniciar Sesión'}
+                  ? 'REGISTRARSE'
+                  : 'INICIAR SESIÓN'}
               </button>
             </div>
           </form>
           {!isRegister && (
-            <p className="text-gray-600 text-center mt-4">
-              ¿Olvidaste tu contraseña?{' '}
+            <p className="text-gray-600 text-center mt-6">
+              ¿No tienes cuenta?{' '}
               <a
                 href="#"
-                className="text-[#001F54] font-semibold hover:underline"
+                className="text-[#7400ad] font-semibold hover:underline"
               >
-                Restablecer
+                Registrate
               </a>
             </p>
           )}

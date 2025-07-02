@@ -1,20 +1,24 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaTrashAlt, FaPlus, FaMinus } from "react-icons/fa";
+import { FaTrashAlt, FaPlus, FaMinus, FaEdit } from "react-icons/fa";
 
 const initialCart = [
-  { id: 1, src: "https://via.placeholder.com/150", name: "Blusa 1", price: 25.99, quantity: 1 },
-  { id: 3, src: "https://via.placeholder.com/150", name: "Pantalón 1", price: 40.99, quantity: 2 },
-  { id: 5, src: "https://via.placeholder.com/150", name: "Vestido 1", price: 60.99, quantity: 1 },
+  { id: 1, src: "/src/assets/PRODUCTO (3).png", name: "Blusa 1", price: 25.99, quantity: 1 },
+  { id: 3, src: "/src/assets/PRODUCTO (4).png", name: "Pantalón 1", price: 40.99, quantity: 2 },
+  { id: 5, src: "/src/assets/PRODUCTO (5).png", name: "Vestido 1", price: 60.99, quantity: 1 },
+  { id: 7, src: "/src/assets/PRODUCTO (3).png", name: "Zapatos 1", price: 80.5, quantity: 1 },
+  { id: 9, src: "/src/assets/PRODUCTO (4).png", name: "Bolso 1", price: 45.25, quantity: 3 },
 ];
 
-export default function CarritoDeCompras() {
+export default function CarritoDeComprasNuevo() {
   const [cart, setCart] = useState(initialCart);
   const navigate = useNavigate();
 
-  const calculateTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+  const calculateSubtotal = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
+
+  const shippingCost = 5.0;
 
   const updateQuantity = (id, change) => {
     setCart((prevCart) =>
@@ -28,102 +32,144 @@ export default function CarritoDeCompras() {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
+  const handleEdit = (item) => {
+    // Aquí podrías abrir un modal, o redirigir a un editor de producto
+    alert(`Editar ${item.name}`);
+  };
+
+  console.log("Carrito de Compras:", cart);
   return (
-    <div className="p-8 bg-[#f9f9f9]">
-      <h1 className="text-4xl font-bold mb-8 text-center text-[#001F54]">
-        Carrito de Compras
-      </h1>
-      {cart.length > 0 ? (
-        <div className="flex flex-col lg:flex-row">
-          {/* Lista de productos */}
-          <div className="lg:w-3/4 lg:pr-8">
-            {cart.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center justify-between p-4 mb-4 bg-white rounded-lg shadow-md hover:bg-gray-100"
-              >
-                <div className="flex items-center space-x-4">
-                  <img
-                    src={item.src}
-                    alt={item.name}
-                    className="w-24 h-24 object-cover rounded-lg"
-                  />
-                  <div>
-                    <p className="text-lg font-semibold">{item.name}</p>
-                    <p className="text-gray-600">${item.price.toFixed(2)}</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-10">
-                  {/* Botones para modificar cantidad */}
-                  <div className="flex items-center">
-                    <button
-                      onClick={() => updateQuantity(item.id, -1)}
-                      className="p-2 border rounded-l-lg bg-gray-100 hover:bg-gray-200"
+    <div className="bg-gray-100 py-16">
+      <div className="container mx-auto px-6 max-w-4xl">
+        <div className="bg-white rounded-lg shadow-md border border-gray-200 flex flex-col h-[calc(80vh-80px)]">
+          <div className="py-8 px-20 flex-grow overflow-hidden flex flex-col ">
+            <h1 className="text-4xl font-bold mb-6 text-[#7400ad]">
+              Cesta
+            </h1>
+
+            {cart.length > 0 ? (
+              <>
+                {/* Lista de productos con scroll */}
+                <div
+                  className="overflow-y-auto pr-2 space-y-2 mb-6"
+                  style={{
+                    scrollbarColor: "#7400ad #f0f0f0",
+                    maxHeight: "calc(100vh - 310px)", // ajustado para que no choque con el resumen
+                    paddingRight: "0.5rem", // para que no tape el contenido el scroll
+                  }}
+                >
+                  {cart.map((item) => (
+                    <div
+                      key={item.id}
+                      className=""
                     >
-                      <FaMinus />
-                    </button>
-                    <span className="w-10 text-center">{item.quantity}</span>
-                    <button
-                      onClick={() => updateQuantity(item.id, 1)}
-                      className="p-2 border rounded-r-lg bg-gray-100 hover:bg-gray-200"
-                    >
-                      <FaPlus />
-                    </button>
-                  </div>
-                  <p className="text-lg font-bold">
-                    ${(item.price * item.quantity).toFixed(2)}
-                  </p>
-                  {/* Botón de eliminar */}
-                  <button
-                    onClick={() => removeFromCart(item.id)}
-                    className="text-red-500 p-2 hover:bg-gray-100 rounded-lg"
-                  >
-                    <FaTrashAlt className="w-5 h-5" />
-                  </button>
+                      <div className="flex items-center gap-4 w-full">
+                        <img
+                          src={item.src}
+                          alt={item.name}
+                          className="w-40 h-40 object-cover"
+                        />
+                        <div className="flex flex-col justify-between w-full">
+                          {/* Nombre + acciones */}
+                          <div className="flex justify-between items-start">
+                            <p className="text-base">{item.name}</p>
+                            <div className="flex items-center gap-3">
+                              <button
+                                onClick={() => handleEdit(item)}
+                                className="text-blue-500 hover:text-blue-700 transition"
+                                aria-label={`Editar ${item.name}`}
+                              >
+                                <FaEdit size={18} />
+                              </button>
+                              <button
+                                onClick={() => removeFromCart(item.id)}
+                                className="text-red-500 hover:text-red-700 transition"
+                                aria-label={`Eliminar ${item.name}`}
+                              >
+                                <FaTrashAlt size={18} />
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Precio */}
+                          <p className="text-[#ff1654] font-bold">
+                            {item.price}
+                            <label className="ml-1 p-0.5 bg-[#ff1654] text-white">-30%</label>
+                          </p>
+                          <p className="text-gray-800 mb-2 font-bold line-through">MXN ${item.price.toFixed(2)}</p>
+
+                          {/* Talla y color (centrados) */}
+                          <div className="flex items-center gap-4 justify-center text-sm text-gray-800 font-bold">
+                            <p>Talla: M</p>
+                            <div className="w-5 h-5 rounded-full border border-gray-300" style={{ backgroundColor: "blue" }}></div>
+                          </div>
+
+                          {/* Cantidad abajo */}
+                          <div className="flex items-center border rounded-lg overflow-hidden w-fit mt-2">
+                            <button
+                              onClick={() => updateQuantity(item.id, -1)}
+                              className="px-3 py-1 bg-gray-100 hover:bg-gray-200 transition"
+                            >
+                              <FaMinus />
+                            </button>
+                            <span className="px-4">{item.quantity}</span>
+                            <button
+                              onClick={() => updateQuantity(item.id, 1)}
+                              className="px-3 py-1 bg-gray-100 hover:bg-gray-200 transition"
+                            >
+                              <FaPlus />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  ))}
                 </div>
+              </>
+            ) : (
+              <div className="text-center mt-24">
+                <p className="text-lg text-gray-700 mb-6">Tu carrito está vacío.</p>
+                <button
+                  onClick={() => navigate("/productos")}
+                  className="px-6 py-3 bg-[#7400ad] text-white rounded-lg hover:bg-[#003080] transition duration-300"
+                >
+                  Ir a Productos
+                </button>
               </div>
-            ))}
+            )}
           </div>
 
-          {/* Resumen del carrito */}
-          <div className="lg:w-1/4 bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-4 text-[#001F54]">
-              Resumen
-            </h2>
-            <div className="flex justify-between mb-4">
-              <span className="text-lg font-medium">Subtotal</span>
-              <span className="text-lg font-medium">${calculateTotal()}</span>
+          {/* Resumen al fondo, visible siempre */}
+          <div className="border-t py-8 rounded-b-lg shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+            <div className="flex flex-col gap-6 w-full items-center">
+              <div className="space-y-2 w-1/2 text-gray-800 font-medium text-lg">
+                <div className="flex justify-between">
+                  <span className="">Subtotal:</span>
+                  <span className="">MXN ${calculateSubtotal().toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="">Gastos de Envío</span>
+                  <span className="text-[#7400ad] font-semibold"> MXN ${shippingCost.toFixed(2)}</span>
+                </div>
+                <hr />
+                <div className="flex justify-between text-2xl font-semibold">
+                  <span>Total </span> <span className="text-sm">(IVA Incluido) </span>
+                  <span> MXN ${(calculateSubtotal() + shippingCost).toFixed(2)}</span>
+                </div>
+              </div>
+
+              <button
+                onClick={() => navigate("/checkout")}
+                className=" bg-gradient-to-r from-[#7400ad] to-[#d80495] text-xl text-white px-8 py-2 rounded-full hover:bg-[#003080] transition duration-300"
+              >
+                PROCEDER AL PAGO
+              </button>
             </div>
-            <div className="flex justify-between mb-4">
-              <span className="text-lg font-medium">Envío</span>
-              <span className="text-lg font-medium">$5.00</span>
-            </div>
-            <hr className="my-4" />
-            <div className="flex justify-between mb-4">
-              <span className="text-xl font-bold">Total</span>
-              <span className="text-xl font-bold">
-                ${(parseFloat(calculateTotal()) + 5).toFixed(2)}
-              </span>
-            </div>
-            <button
-              onClick={() => navigate("/checkout")} href="#"
-              className="w-full px-4 py-2 mt-4 bg-[#001F54] text-white rounded-lg hover:bg-[#003080] transition duration-300"
-            >
-              Proceder al Pago
-            </button>
           </div>
+
         </div>
-      ) : (
-        <div className="text-center">
-          <p className="text-lg text-gray-700 mb-6">Tu carrito está vacío.</p>
-          <button
-            onClick={() => navigate("/productos")} href="#"
-            className="px-6 py-3 bg-[#001F54] text-white rounded-lg hover:bg-[#003080] transition duration-300"
-          >
-            Ir a Productos
-          </button>
-        </div>
-      )}
+      </div>
     </div>
   );
 }

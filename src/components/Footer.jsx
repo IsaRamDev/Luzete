@@ -201,10 +201,10 @@ function Footer() {
           <div className="text-xs mt-3">
             <p>© 2025 Luzete Fashion</p>
           </div>
-          <a onClick={() => navigate("/terminos-y-condiciones")} className="text-xs mt-4 mr-3 hover:text-[#d80495]">
+          <a onClick={() => navigate("/terminos-y-condiciones")} href="#" className="text-xs mt-4 mr-3 hover:text-[#d80495]">
             Términos y condiciones
           </a>|
-          <a onClick={() => navigate("/aviso-de-privacidad")} className="text-xs mt-4 ml-3 hover:text-[#d80495]">
+          <a onClick={() => navigate("/aviso-de-privacidad")} href="#" className="text-xs mt-4 ml-3 hover:text-[#d80495]">
             Aviso de privacidad
           </a>
         </div>
