@@ -1,68 +1,47 @@
-import { useLikes } from "../hooks/LikesProvider";
 import { useNavigate } from "react-router-dom";
-import { FaTrashAlt } from "react-icons/fa";
 
-export default function ListaDeMeGusta() {
-  const { likedProducts, toggleLike } = useLikes();
+const descuentos = [
+  { id: 1, src: "/src/assets/PRODUCTO (1).png", name: "Descuento en auriculares", price: "$19.99", vendor: "Vendedor 1" },
+  { id: 2, src: "/src/assets/PRODUCTO (2).png", name: "Descuento en cámaras", price: "$29.99", vendor: "Vendedor 2" },
+  { id: 3, src: "/src/assets/PRODUCTO (3).png", name: "Descuento en relojes", price: "$39.99", vendor: "Vendedor 3" },
+  { id: 4, src: "/src/assets/PRODUCTO (4).png", name: "Descuento en auriculares", price: "$19.99", vendor: "Vendedor 1" },
+  { id: 5, src: "/src/assets/PRODUCTO (5).png", name: "Descuento en cámaras", price: "$29.99", vendor: "Vendedor 2" },
+  { id: 6, src: "/src/assets/PRODUCTO (6).png", name: "Descuento en relojes", price: "$39.99", vendor: "Vendedor 3" },
+  { id: 7, src: "/src/assets/PRODUCTO (7).png", name: "Descuento en auriculares", price: "$19.99", vendor: "Vendedor 1" },
+  { id: 8, src: "/src/assets/PRODUCTO (8).png", name: "Descuento en cámaras", price: "$29.99", vendor: "Vendedor 2" },
+  { id: 9, src: "/src/assets/PRODUCTO (1).png", name: "Descuento en relojes", price: "$39.99", vendor: "Vendedor 3" },
+];
+
+export default function Descuentos() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-gray-100 py-16">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <h1 className="text-4xl font-bold mb-8 text-center text-[#001F54]">
-          Lista de Me Gusta
-        </h1>
-
-        {likedProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {likedProducts.map((product) => (
-              <div
-                key={product.id}
-                className="bg-white p-4 rounded-lg shadow-md hover:bg-gray-100 transition duration-300"
-              >
-                <img
-                  src={product.src}
-                  alt={product.name}
-                  className="w-full h-48 object-cover rounded-lg cursor-pointer"
-                  onClick={() => navigate(`/producto/${product.id}`)}
-                />
-                <div className="mt-4 text-center">
-                  <p className="text-lg font-semibold">{product.name}</p>
-                  <p className="text-gray-600">{product.price}</p>
-                  <div className="flex justify-center mt-4">
-                    <button
-                      onClick={() => toggleLike(product)}
-                      className="text-red-500 hover:bg-gray-200 p-2 rounded-lg transition duration-300"
-                    >
-                      <FaTrashAlt className="w-5 h-5" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center">
-            <p className="text-lg text-gray-700 mb-6">
-              Aún no has agregado productos a tu lista de Me Gusta.
-            </p>
-            <button
-              onClick={() => navigate("/")} href="#"
-              className="px-6 py-3 bg-[#001F54] text-white rounded-lg hover:bg-[#003080] transition duration-300"
-            >
-              Explorar Productos
-            </button>
-          </div>
-        )}
-
-        <div className="mt-10 text-center">
-          <button
-            onClick={() => navigate("/")} href="#"
-            className="px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition duration-300"
+    <div className="mb-20 mt-32 px-4 sm:px-10 lg:px-20" id="descuentos">
+      <h2 className="text-3xl font-semibold mb-8 text-[#7400ad]">Favoritos</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {descuentos.map((item) => (
+          <div
+            key={item.id}
+            onClick={() => navigate(`/producto/${item.id}`)}
+            className="flex gap-4 items-start cursor-pointer hover:bg-gray-100 p-4 rounded-lg transition-all flex-wrap"
           >
-            Volver a Inicio
-          </button>
-        </div>
+            <img
+              src={item.src}
+              alt={item.name}
+              className="w-full sm:w-32 md:w-40 lg:w-48 h-auto object-cover shrink-0"
+            />
+            <div className="flex-1 min-w-0 text-xl sm:text-lg">
+              <p className="font-medium text-[#222]">{item.name}</p>
+              <p className="text-[#ff1654] font-bold flex items-center gap-2">
+                MXN {item.price}
+                <span className="p-1 px-2 bg-[#ff1654] text-white text-xs rounded">-30%</span>
+              </p>
+              <p className="font-semibold line-through">
+                {item.vendor}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
