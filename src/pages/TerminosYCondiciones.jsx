@@ -16,7 +16,7 @@ function TerminosYCondiciones() {
             Este sitio está destinado exclusivamente para uso personal y comercial de nuestros clientes mayoristas. Está prohibido utilizar el contenido del sitio para fines ilegales, difamatorios o que infrinjan los derechos de propiedad intelectual de terceros.
           </p>
 
-          <h2 className="text-2xl font-bold text-[#966bab] mt-6 mb-4">2. Políticas de Compra</h2>
+          <h2 className="text-2xl font-bold text-[#7400ad] mt-6 mb-4">2. Políticas de Compra</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
             Todas las compras realizadas están sujetas a disponibilidad de inventario. Luzete Fashion se reserva el derecho de cancelar pedidos en caso de errores de precio, información incorrecta o problemas con el pago.
           </p>

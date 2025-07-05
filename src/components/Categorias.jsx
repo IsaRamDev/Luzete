@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom";
 
 const catalogo = {
   categorias: [
-    { id: 1, src: "/src/assets/CATEGORIA mujer.png", name: "mujer" },
-    { id: 2, src: "/src/assets/CATEGORIA hombre.png", name: "hombre" },
-    { id: 3, src: "/src/assets/CATEGORIA niña.png", name: "niña" },
-    { id: 4, src: "/src/assets/CATEGORIA niño.png", name: "niño" },
+    { id: 1, src: "/src/assets/CATEGORIA MUJER.png", name: "mujer" },
+    { id: 2, src: "/src/assets/CATEGORIA HOMBRE.png", name: "hombre" },
+    { id: 3, src: "/src/assets/CATEGORIA NIÑA.png", name: "niña" },
+    { id: 4, src: "/src/assets/CATEGORIA NIÑO.png", name: "niño" },
   ],
 };
 
