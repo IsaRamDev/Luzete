@@ -73,8 +73,8 @@ export default function SubCatalog() {
         uniqueVendors={Array.from(new Set(mockProducts.map((p) => p.vendor)))}
       />
 
-      <div className="relative ml-7">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="relative sm:mx-7 mx-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 sm:gap-6 gap-2">
           {filteredProducts.map((item) => (
             <ProductCard key={item.id} item={item} onClick={() => navigate(`/catalogo/${category}/${subCategory}/${item.id}`)} />
           ))}

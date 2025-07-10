@@ -16,9 +16,9 @@ export default function Descuentos() {
   const navigate = useNavigate();
 
   return (
-    <div className="mb-20 mt-32 px-4 sm:px-10 lg:px-20" id="descuentos">
-      <h2 className="text-3xl font-semibold mb-8 text-[#7400ad]">Favoritos</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="sm:mb-20 mb-10 sm:mt-32 mt-20 px-4 sm:px-10 lg:px-20" id="descuentos">
+      <h2 className="sm:text-3xl text-xl font-semibold sm:mb-8 mb-2 text-[#7400ad]">Favoritos</h2>
+      <div className="grid grid-cols-2 lg:grid-cols-3 sm:gap-6">
         {descuentos.map((item) => (
           <div
             key={item.id}
@@ -30,7 +30,7 @@ export default function Descuentos() {
               alt={item.name}
               className="w-full sm:w-32 md:w-40 lg:w-48 h-auto object-cover shrink-0"
             />
-            <div className="flex-1 min-w-0 text-xl sm:text-lg">
+            <div className="flex-1 min-w-0 text-sm sm:text-lg">
               <p className="font-medium text-[#222]">{item.name}</p>
               <p className="text-[#ff1654] font-bold flex items-center gap-2">
                 MXN {item.price}

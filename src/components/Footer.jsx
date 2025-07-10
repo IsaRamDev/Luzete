@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 function Footer() {
   const navigate = useNavigate();
   return (
-    <footer className="relative pt-8 pb-10 z-50 px-20 justify-items-center">
-      <div className="absolute top-0 left-20 right-20 h-[3px] bg-gradient-to-r from-[#7400ad] to-[#d80495]" />
+    <footer className="relative pt-8 pb-10 z-50 sm:px-20 px-0 justify-items-center">
+      <div className="absolute top-0 sm:left-20 left-5 right-5 sm:right-20 h-[3px] bg-gradient-to-r from-[#7400ad] to-[#d80495]" />
       <div className="container justify-items-center">
         {/* Sección de enlaces */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 w-full justify-items-center">
+        <div className="grid grid-cols-1 text-sm sm:text-base sm:grid-cols-3 gap-4 sm:gap-8 w-full text-center sm:text-start justify-items-center">
           {/* Soporte al Cliente */}
           <div>
             <ul>
@@ -194,7 +194,7 @@ function Footer() {
           </p>*/}
         </div>
 
-        <div className="absolute right-20 left-20 h-[3px] bg-gradient-to-r from-[#7400ad] to-[#d80495]" />
+        <div className="absolute sm:left-20 left-5 right-5 sm:right-20 h-[3px] bg-gradient-to-r from-[#7400ad] to-[#d80495]" />
 
         {/* Enlaces de políticas y redes sociales */}
         <div className="mt-6 pt-4 text-center">

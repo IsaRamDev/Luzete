@@ -146,9 +146,9 @@ export default function PerfilUsuario() {
 
   if (loading) {
     return (
-      <div className="bg-gray-100 py-16">
-        <div className="container mx-auto px-6 max-w-2xl text-center">
-          <p className="text-lg font-bold text-[#7400ad]">Cargando...</p>
+      <div className="bg-gray-100 sm:py-16 py-8">
+        <div className="container mx-auto sm:px-6 px-3 max-w-2xl text-center">
+          <p className="sm:text-lg font-bold text-[#7400ad]">Cargando...</p>
         </div>
       </div>
     );
@@ -156,12 +156,12 @@ export default function PerfilUsuario() {
   console.log("Profile:", profile);
   console.log("Pedidos:", pedidos);
   return (
-    <div className="bg-gray-100 py-16">
-      <div className="container mx-auto px-6 max-w-2xl">
-        <div className="bg-white rounded-lg shadow-md p-10 border border-gray-200">
+    <div className="bg-gray-100 sm:py-16 py-8">
+      <div className="container mx-auto sm:px-6 px-3 max-w-2xl">
+        <div className="bg-white rounded-lg shadow-md p-10 border border-gray-200 text-sm sm:text-base">
           <div className="flex justify-center mb-8">
             <button
-              className={`w-1/2 py-2 text-center font-bold text-lg ${activeTab === "perfil"
+              className={`w-1/2 py-2 text-center font-bold sm:text-lg text-base ${activeTab === "perfil"
                 ? "border-b-2 border-[#7400ad] text-[#7400ad]"
                 : "text-gray-500"
                 }`}
@@ -170,7 +170,7 @@ export default function PerfilUsuario() {
               Perfil
             </button>
             <button
-              className={`w-1/2 py-2 text-center font-bold text-lg ${activeTab === "pedidos"
+              className={`w-1/2 py-2 text-center font-bold sm:text-lg text-base ${activeTab === "pedidos"
                 ? "border-b-2 border-[#7400ad] text-[#7400ad]"
                 : "text-gray-500"
                 }`}
@@ -206,37 +206,37 @@ export default function PerfilUsuario() {
 
                 {!editing ? (
                   <>
-                    <div className="mb-6">
-                      <p className="text-lg font-medium">Nombre</p>
+                    <div className="sm:mb-6 mb-3">
+                      <p className="sm:text-lg sm:font-medium font-bold">Nombre</p>
                       <p className="text-gray-700">{profile.nombre}</p>
                     </div>
-                    <div className="mb-6">
-                      <p className="text-lg font-medium">Correo Electrónico</p>
+                    <div className="sm:mb-6 mb-3">
+                      <p className="sm:text-lg sm:font-medium font-bold">Correo Electrónico</p>
                       <p className="text-gray-700">{profile.email}</p>
                     </div>
-                    <div className="mb-6">
-                      <p className="text-lg font-medium">Teléfono</p>
+                    <div className="sm:mb-6 mb-3">
+                      <p className="sm:text-lg sm:font-medium font-bold">Teléfono</p>
                       <p className="text-gray-700">{profile.telefono}</p>
                     </div>
-                    <div className="mb-6">
-                      <p className="text-lg font-medium">Dirección</p>
+                    <div className="sm:mb-6 mb-3">
+                      <p className="sm:text-lg sm:font-medium font-bold">Dirección</p>
                       <p className="text-gray-700">{profile.direccion}</p>
                     </div>
-                    <div className="mb-6">
-                      <p className="text-lg font-medium">Contraseña</p>
+                    <div className="sm:mb-6 mb-3">
+                      <p className="sm:text-lg sm:font-medium font-bold">Contraseña</p>
                       <p className="text-gray-700">{profile.contraseña}</p>
                     </div>
 
-                    <div className="flex justify-between mt-6 px-10">
+                    <div className="flex justify-between mt-6 sm:px-10 px-3">
                       <button
                         onClick={handleEdit}
-                        className="px-6 py-3 border-2 text-gray-600 border-gray-600 rounded-full hover:bg-[#003080] transition duration-300"
+                        className="sm:px-6 px-3 py-3 border-2 text-gray-600 border-gray-600 rounded-full hover:bg-[#003080] transition duration-300"
                       >
                         Editar Perfil
                       </button>
                       <button
                         onClick={() => navigate("/logout")} href="#"
-                        className="px-6 py-3 bg-red-500 text-white bg-gradient-to-r from-[#7400ad] to-[#d80495] rounded-full hover:bg-red-600 transition duration-300"
+                        className="sm:px-6 px-3 py-3 bg-red-500 text-white bg-gradient-to-r from-[#7400ad] to-[#d80495] rounded-full hover:bg-red-600 transition duration-300"
                       >
                         Cerrar Sesión
                       </button>
@@ -320,21 +320,21 @@ export default function PerfilUsuario() {
           ) : (
             <>
               {pedidos.length > 0 ? (
-                <ul className="space-y-4">
+                <ul className="sm:space-y-4 space-y-2 -mx-6 sm:mx-0">
                   {pedidos.map((pedido) => (
-                    <li key={pedido.id} className="border border-gray-300 rounded-lg py-4 px-6 flex">
+                    <li key={pedido.id} className="border border-gray-300 rounded-lg py-4 sm:px-6 px-3 flex">
                       <div className="flex-col">
-                        <p className="text-lg font-medium text-gray-600 mb-1">
+                        <p className="sm:text-lg font-medium text-gray-600 mb-1">
                           {pedido.estado}
                         </p>
-                        <p className="text-gray-600 text-sm">{pedido.articulos.length} productos</p>
-                        <p className="text-gray-600 text-sm">
+                        <p className="text-gray-600 text-xs sm:text-sm">{pedido.articulos.length} productos</p>
+                        <p className="text-gray-600 text-xs sm:text-sm">
                           pedido realizado el {new Date(pedido.fecha).toLocaleDateString()}
                         </p>
-                        <p className="text-gray-600 text-sm">
+                        <p className="text-gray-600 text-xs sm:text-sm">
                           Pedido # {pedido.id}
                         </p>
-                        <p className="text-lg font-medium text-gray-600 mt-2">
+                        <p className="sm:text-lg font-medium text-gray-600 mt-2">
                           MXN ${pedido.pedidoTotal}
                         </p>
                         {pedido.devolucionDisponible && (
@@ -349,12 +349,12 @@ export default function PerfilUsuario() {
                             key={index}
                             src={articulo.imagen}
                             alt={articulo.nombre}
-                            className="w-18 h-20 object-cover0"
+                            className="sm:w-18 w-10 sm:h-20 h-12 object-cover0"
                           />
                         ))}
 
                         {pedido.articulos.length > 3 && (
-                          <div className="flex items-center justify-center p-3 text-gray-600 font-semibold text-sm">
+                          <div className="flex items-center justify-center sm:p-3 p-1 text-gray-600 font-semibold text-xs sm:text-sm">
                             +{pedido.articulos.length - 3}
                           </div>
                         )}

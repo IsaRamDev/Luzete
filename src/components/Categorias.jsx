@@ -18,8 +18,8 @@ export default function Categorias() {
   };
 
   return (
-    <div className="px-20 mb-24">
-      <h2 className="text-3xl font-semibold text-[#ff1654]">CATEGORIAS</h2>
+    <div className="sm:px-20 px-5 sm:mb-24 mb-16">
+      <h2 className="sm:text-3xl text-xl font-semibold text-[#ff1654]">CATEGORIAS</h2>
       <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         {catalogo.categorias.map((cat) => (
           <div
@@ -28,7 +28,7 @@ export default function Categorias() {
             className="shadow-md text-center hover:scale-110"
           >
             <img src={cat.src} alt={cat.name} className="w-full object-cover" />
-            <p className="text-lg my-5 font-semibold">{cat.name}</p>
+            <p className="sm:text-lg my-5 font-semibold">{cat.name}</p>
           </div>
         ))}
       </div>

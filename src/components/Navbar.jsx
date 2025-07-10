@@ -107,29 +107,29 @@ function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-      <div className="container mx-auto max-w-none flex justify-between items-center py-2 px-10">
+      <div className="container mx-auto max-w-none flex justify-between items-center py-2 sm:px-10 px-0">
         {/* Catálogo con menú desplegable */}
         <div
           className="relative"
           onMouseEnter={handleCatalogMouseEnter}
           onMouseLeave={handleCatalogMouseLeave}
         >
-          <button className="flex items-center font-semibold px-4 py-2">
+          <button className="flex items-center font-semibold sm:px-4 px-2 py-2">
             {!isCatalogOpen && <img
               src="/src/assets/MENU.png"
               alt="Menu Catalogo"
-              className="h-6 w-8 mr-2"
+              className="sm:h-6 h-4 sm:w-8 w-6 sm:mr-2 mr-0"
             />}
             {isCatalogOpen && <img
               src="/src/assets/MENU2.png"
               alt="Menu Catalogo"
-              className="h-6 w-8 mr-2"
+              className="sm:h-6 h-4 sm:w-8 w-6 sm:mr-2 mr-0"
             />}
           </button>
           {isCatalogOpen && (
             <div className="absolute top-24 -left-6 bg-white rounded-lg shadow-lg z-50 px-10 py-5">
               {/* Tabs horizontales */}
-              <ul className="flex border-b-2">
+              <ul className="flex border-b-2 text-sm sm:text-base font-semibold">
                 {Object.keys(categories).map((key) => (
                   <li
                     key={key}
@@ -145,7 +145,7 @@ function Navbar() {
               {/* Subcategorías */}
               <div className="p-4">
                 {openSubMenu && (
-                  <ul className="gap-2">
+                  <ul className="gap-2 sm:text-base text-xs">
                     {categories[openSubMenu].map((category) => (
                       <li key={category}>
                         <a
@@ -170,7 +170,7 @@ function Navbar() {
             <img
               src="/src/assets/qq_0000s_0000s_0000_LOGO.png"
               alt="Luzete Logo"
-              className="h-16 rounded-md"
+              className="sm:h-16 h-6 rounded-md"
             />
           </a>
         </div>
@@ -178,11 +178,11 @@ function Navbar() {
         <nav className="flex items-center space-x-6">
           {/* Barra de búsqueda */}
           <div className="relative bg-gradient-to-r from-[#7400ad] to-[#d80495] p-[2px] rounded-full transition hover:scale-110 duration-200">
-            <div className="flex items-center bg-white rounded-full w-96 pl-10 relative">
+            <div className="flex items-center bg-white rounded-full sm:w-96 w-40 sm:pl-10 pl-5 relative">
               <input
                 type="text"
                 placeholder="Buscar productos..."
-                className="w-full bg-transparent focus:outline-none"
+                className="w-full sm:text-base text-xs bg-transparent focus:outline-none"
                 value={searchTerm}
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
@@ -191,12 +191,12 @@ function Navbar() {
                 onFocus={() => setShowSuggestions(true)}
                 onBlur={() => setTimeout(() => setShowSuggestions(false), 200)} // Para que sí funcione el click en sugerencia
               />
-              <FaSearch className="absolute left-5 text-gray-400" />
+              <FaSearch className="absolute sm:text-base text-xs sm:left-5 left-1 text-gray-400" />
               <button
-                className="bg-[#d80495] text-white px-3 py-1 rounded-full hover:bg-[#7400ad] transition hover:scale-110 duration-200"
+                className="bg-[#d80495] text-white sm:px-3 px-2 sm:py-1 py-0 rounded-full hover:bg-[#7400ad] transition hover:scale-110 duration-200"
                 onClick={handleSearch}
               >
-                <FaSearch className="inline mb-1 text-white" />
+                <FaSearch className="inline sm:text-base text-xs mb-1 text-white" />
               </button>
 
               {/* SUGERENCIAS */}
@@ -205,7 +205,7 @@ function Navbar() {
                   {filteredSuggestions.map((item, idx) => (
                     <li
                       key={idx}
-                      className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100 text-sm"
+                      className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100 sm:text-sm text-xs"
                       onClick={() => {
                         setSearchTerm(item);
                         handleSearch();
@@ -222,9 +222,9 @@ function Navbar() {
         </nav>
 
         {/* Íconos de usuario */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center sm:space-x-4 space-x-2">
           <button
-            className="text-white px-10 py-1 rounded-full bg-gradient-to-r from-[#7400ad] to-[#d80495] hover:scale-125 transition duration-200"
+            className="flex flex-row text-xs sm:text-base text-white sm:px-10 px-2 sm:py-1 py-1 rounded-full bg-gradient-to-r from-[#7400ad] to-[#d80495] hover:scale-125 transition duration-200"
             onClick={() => navigate("/auth-screen")} href="#"
           >
             LOG IN
@@ -233,7 +233,7 @@ function Navbar() {
             onClick={() => navigate("/perfil")} href="#">
             <img
               src="/src/assets/USER.png"
-              className="group-hover:hidden w-4 h-4 transition duration-200"
+              className="group-hover:hidden sm:w-4 w-3 sm:h-4 h-3 transition duration-200"
               alt="USER"
             />
             <img
@@ -246,7 +246,7 @@ function Navbar() {
             onClick={() => navigate("/me-gusta")} href="#">
             <img
               src="/src/assets/FAV.png"
-              className="group-hover:hidden w-4 h-4 transition duration-200"
+              className="group-hover:hidden sm:w-4 w-3 sm:h-4 h-3 transition duration-200"
               alt="FAV"
             />
             <img
@@ -259,7 +259,7 @@ function Navbar() {
             onClick={() => navigate("/carrito-compras")} href="#">
             <img
               src="/src/assets/BAG.png"
-              className="group-hover:hidden w-4 h-4 transition duration-200"
+              className="group-hover:hidden sm:w-4 w-3 sm:h-4 h-3 transition duration-200"
               alt="BAG"
             />
             <img
@@ -272,7 +272,7 @@ function Navbar() {
             onClick={() => navigate("/soporte-tecnico")} href="#">
             <img
               src="/src/assets/CONTACT.png"
-              className="group-hover:hidden w-4 h-4 transition duration-200"
+              className="group-hover:hidden sm:w-4 w-3 sm:h-4 h-3 transition duration-200"
               alt="CONTACT"
             />
             <img

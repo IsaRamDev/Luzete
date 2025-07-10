@@ -34,11 +34,11 @@ function AuthScreen() {
 
   return (
     <div className="bg-gray-100 py-16">
-      <div className="container mx-auto px-6 max-w-md">
+      <div className="container mx-auto px-6 max-w-md text-sm sm:text-base">
         <div className="bg-white rounded-lg shadow-md py-10 p-16">
           <div className="flex justify-center mb-8">
             <button
-              className={`w-1/2 py-2 text-center font-bold text-lg ${
+              className={`w-1/2 py-2 text-center font-bold sm:text-lg text-base ${
                 isRegister
                   ? 'border-b-2 border-[#7400ad] text-[#7400ad]'
                   : 'text-gray-500'
@@ -48,7 +48,7 @@ function AuthScreen() {
               Registrarse
             </button>
             <button
-              className={`w-1/2 py-2 text-center font-bold text-lg ${
+              className={`w-1/2 py-2 text-center font-bold sm:text-lg text-base ${
                 !isRegister
                   ? 'border-b-2 border-[#7400ad] text-[#7400ad]'
                   : 'text-gray-500'
@@ -58,7 +58,7 @@ function AuthScreen() {
               Iniciar Sesión
             </button>
           </div>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="sm:space-y-6 space-y-4">
             {isRegister && (
               <div>
                 <label htmlFor="nombre" className="block text-gray-700 font-medium">
@@ -103,7 +103,7 @@ function AuthScreen() {
                 onChange={handleChange}
                 required
                 placeholder="Escribe tu contraseña"
-                className="border border-gray-300 rounded-lg px-4 py-2 w-full mb-10"
+                className="border border-gray-300 rounded-lg px-4 py-2 w-full sm:mb-10"
               />
             </div>
             {isRegister && (
@@ -124,7 +124,7 @@ function AuthScreen() {
               </div>
             )}
             {!isRegister && (
-            <p className="text-gray-600 text-center">
+            <p className="text-gray-600 text-center text-sm sm:text-base">
               ¿Has olvidado tu contraseña?{' '}
             </p>
           )}
@@ -133,7 +133,7 @@ function AuthScreen() {
                 type="submit"
                 className={`${
                   enviando ? 'bg-gray-400' : 'bg-gradient-to-r from-[#7400ad] to-[#d80495]'
-                } text-white px-8 py-2 rounded-full text-xl hover:bg-[#003080] transition duration-300`}
+                } text-white px-8 py-2 rounded-full sm:text-xl text-sm hover:bg-[#003080] transition duration-300`}
                 disabled={enviando}
               >
                 {enviando
@@ -145,7 +145,7 @@ function AuthScreen() {
             </div>
           </form>
           {!isRegister && (
-            <p className="text-gray-600 text-center mt-6">
+            <p className="text-gray-600 text-center sm:mt-6 mt-3 text-sm sm:text-base">
               ¿No tienes cuenta?{' '}
               <a
                 href="#"

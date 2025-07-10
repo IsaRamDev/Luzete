@@ -149,9 +149,9 @@ export default function DetalleDescuento() {
 
  return (
     <div className="">
-      <div className="px-44 flex mb-20">
+      <div className="sm:px-44 flex sm:flex-row flex-col px-4 sm:mb-20 mb-10">
         {/* Imagen principal y miniaturas */}
-        <div className="w-1/2">
+        <div className="sm:w-1/2">
           <div className="relative">
             <img
               src={selectedImage || descuento.src}
@@ -180,8 +180,8 @@ export default function DetalleDescuento() {
         </div>
 
         {/* Información del producto */}
-        <div className="pl-16 pt-5">
-          <h1 className="text-3xl font-bold mb-4">{descuento.name}</h1>
+        <div className="sm:pl-16 pl-5 pt-5">
+          <h1 className="sm:text-3xl text-xl font-bold mb-4">{descuento.name}</h1>
            <p className="text-[#ff1654] font-bold">
                   {descuento.price}
                   <label className="ml-1 p-0.5 bg-[#ff1654] text-white">-30%</label>
@@ -190,13 +190,13 @@ export default function DetalleDescuento() {
           <p className="text-gray-600 mb-6">Vendedor: {descuento.vendor}</p>
 
           {/* Selección de tallas */}
-          <div className="mb-4">
-            <h3 className="text-lg font-semibold mb-2">Tallas disponibles:</h3>
+          <div className="sm:mb-4 mb-2">
+            <h3 className="sm:text-lg font-semibold mb-2">Tallas disponibles:</h3>
             <div className="flex space-x-4">
               {descuento.sizes.map((size) => (
                 <button
                   key={size}
-                  className={`px-4 py-2 rounded-lg border ${
+                  className={`sm:px-4 sm:py-2 px-2 py-1 sm:text-base text-sm rounded-lg border ${
                       selectedSize === size
                         ? "bg-[#ff1654] text-white"
                         : "bg-white text-gray-700 hover:bg-gray-100"
@@ -210,13 +210,13 @@ export default function DetalleDescuento() {
           </div>
 
           {/* Selección de colores */}
-          <div className="mb-20">
-            <h3 className="text-lg font-semibold mb-2">Colores disponibles:</h3>
+          <div className="sm:mb-20 mb-10">
+            <h3 className="sm:text-lg font-semibold mb-2">Colores disponibles:</h3>
             <div className="flex space-x-4">
               {descuento.colors.map((color) => (
                 <button
                   key={color}
-                  className={`px-4 py-2 rounded-lg border ${
+                  className={`sm:px-4 sm:py-2 px-2 py-1 sm:text-base text-sm rounded-lg border ${
                       selectedColor === color
                         ? "bg-[#ff1654] text-white"
                         : "bg-white text-gray-700 hover:bg-gray-100"

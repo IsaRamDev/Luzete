@@ -27,8 +27,8 @@ export default function SlidesPromos() {
   }, []);
 
   return (
-    <div className="relative mb-24 mt-20">
-      <div className="w-full h-[500px] overflow-hidden">
+    <div className="relative sm:mb-24 mb-10 sm:mt-20 mt-10">
+      <div className="w-full h-1/2 overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentPromoIndex * 100}%)` }}
@@ -41,13 +41,13 @@ export default function SlidesPromos() {
         </div>
       </div>
       <button onClick={prevPromo} className="absolute left-12 top-1/2 transform -translate-y-1/2">
-        <img src="/src/assets/A IZQ.png" alt="Previous" className="w-12 h-12" />
+        <img src="/src/assets/A IZQ.png" alt="Previous" className="sm:w-12 w-6 sm:h-12 h-6" />
       </button>
       <button onClick={nextPromo} className="absolute left-1/2 transform -translate-y-1/2 bottom-4">
-        <img src="/src/assets/DOWN.png" alt="Down" className="w-12 h-12" />
+        <img src="/src/assets/DOWN.png" alt="Down" className="sm:w-12 w-6 sm:h-12 h-6" />
       </button>
       <button onClick={nextPromo} className="absolute right-12 top-1/2 transform -translate-y-1/2">
-        <img src="/src/assets/A DER.png" alt="Next" className="w-12 h-12" />
+        <img src="/src/assets/A DER.png" alt="Next" className="sm:w-12 w-6 sm:h-12 h-6" />
       </button>
     </div>
   );

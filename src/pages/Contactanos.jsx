@@ -41,13 +41,13 @@ function Contactanos() {
   };
 
   return (
-    <div className="bg-gray-100 py-16">
-      <div className="container mx-auto px-6">
-        <h1 className="text-4xl font-bold text-center text-[#7400ad] mb-16">
+    <div className="bg-gray-100 sm:py-16 py-8">
+      <div className="container mx-auto sm:px-6 px-3">
+        <h1 className="sm:text-4xl text-xl font-bold text-center text-[#7400ad] sm:mb-16 mb-5">
           Contáctanos
         </h1>
-        <div className="bg-white rounded-lg shadow-md p-12">
-          <p className="text-lg text-gray-900 leading-relaxed text-center mb-6">
+        <div className="bg-white rounded-lg shadow-md sm:text-base text-sm sm:p-12 p-6">
+          <p className="sm:text-lg text-gray-900 leading-relaxed text-center mb-6">
             ¿Tienes alguna pregunta o necesitas ayuda? Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.
           </p>
           {exito && (
@@ -121,7 +121,7 @@ function Contactanos() {
                 type="submit"
                 className={`${
                   enviando ? 'bg-gray-400' : 'bg-gradient-to-r from-[#7400ad] to-[#d80495]'
-                } text-white px-8 py-2 text-xl rounded-full  hover:scale-125 transition duration-200`}
+                } text-white px-8 py-2 sm:text-xl rounded-full  hover:scale-125 transition duration-200`}
                 disabled={enviando}
               >
                 {enviando ? 'Enviando...' : 'Enviar Mensaje'}

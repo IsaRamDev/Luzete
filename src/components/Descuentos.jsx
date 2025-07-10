@@ -23,16 +23,16 @@ export default function Descuentos() {
   const currentItems = descuentos.slice(startIndex, endIndex);
 
   return (
-    <div className="mb-20 px-20" id="descuentos">
-      <h2 className="text-3xl font-semibold mb-4 text-[#ff1654]">OFERTAS hasta 50%</h2>
+    <div className="sm:mb-20 mb-10 sm:px-20 px-10" id="descuentos">
+      <h2 className="sm:text-3xl text-xl font-semibold mb-4 text-[#ff1654]">OFERTAS hasta 50%</h2>
       <div className="relative">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {currentItems.map((item) => (
             <div key={item.id} onClick={() => navigate(`/producto/${item.id}`)} className="hover:scale-110 shadow-md mb-5">
               <img src={item.src} alt={item.name} className="w-full object-cover" />
               <div className="my-2 pl-4 text-sm">
-                <p className="text-base">{item.name}</p>
-                <p className="text-[#ff1654] font-bold">
+                <p className="sm:text-base">{item.name}</p>
+                <p className="text-[#ff1654] font-bold pt-1">
                   {item.price}
                   <label className="ml-1 p-0.5 bg-[#ff1654] text-white">-30%</label>
                 </p>
@@ -43,13 +43,13 @@ export default function Descuentos() {
         </div>
 
         {currentPage > 0 && (
-          <button onClick={() => setCurrentPage(currentPage - 1)} className="absolute top-1/2 -ml-12 h-16 w-16 transform -translate-y-1/2">
-            <img src="/src/assets/B IZQ.png" alt="Prev" className="w-8 h-8" />
+          <button onClick={() => setCurrentPage(currentPage - 1)} className="absolute top-1/2 sm:-ml-12 -ml-8 h-16 w-16 transform -translate-y-1/2">
+            <img src="/src/assets/B IZQ.png" alt="Prev" className="sm:w-8 w-6 sm:h-8 h-6" />
           </button>
         )}
         {(currentPage + 1) * itemsPerPage < descuentos.length && (
-          <button onClick={() => setCurrentPage(currentPage + 1)} className="absolute right-0 top-1/2 transform -translate-y-1/2 -mr-12">
-            <img src="/src/assets/B DER.png" alt="Next" className="w-8 h-8" />
+          <button onClick={() => setCurrentPage(currentPage + 1)} className="absolute right-0 top-1/2 transform -translate-y-1/2 sm:-mr-12 -mr-8">
+            <img src="/src/assets/B DER.png" alt="Next" className="sm:w-8 w-6 sm:h-8 h-6" />
           </button>
         )}
       </div>

@@ -39,11 +39,11 @@ export default function CarritoDeComprasNuevo() {
 
   console.log("Carrito de Compras:", cart);
   return (
-    <div className="bg-gray-100 py-16">
-      <div className="container mx-auto px-6 max-w-4xl">
+    <div className="bg-gray-100 sm:py-16 py-6">
+      <div className="container mx-auto sm:px-6 px-3 max-w-4xl">
         <div className="bg-white rounded-lg shadow-md border border-gray-200 flex flex-col h-[calc(80vh-80px)]">
-          <div className="py-8 px-20 flex-grow overflow-hidden flex flex-col ">
-            <h1 className="text-4xl font-bold mb-6 text-[#7400ad]">
+          <div className="pt-8 sm:px-20 px-5 flex-grow overflow-hidden flex flex-col">
+            <h1 className="sm:text-4xl text-2xl font-bold sm:mb-6 mb-2 text-[#7400ad]">
               Cesta
             </h1>
 
@@ -51,7 +51,7 @@ export default function CarritoDeComprasNuevo() {
               <>
                 {/* Lista de productos con scroll */}
                 <div
-                  className="overflow-y-auto pr-2 space-y-2 mb-6"
+                  className="overflow-y-auto pr-2 space-y-4"
                   style={{
                     scrollbarColor: "#7400ad #f0f0f0",
                     maxHeight: "calc(100vh - 310px)", // ajustado para que no choque con el resumen
@@ -61,18 +61,17 @@ export default function CarritoDeComprasNuevo() {
                   {cart.map((item) => (
                     <div
                       key={item.id}
-                      className=""
                     >
-                      <div className="flex items-center gap-4 w-full">
+                      <div className="flex items-center gap-4 w-full sm:text-base text-sm">
                         <img
                           src={item.src}
                           alt={item.name}
-                          className="w-40 h-40 object-cover"
+                          className="sm:w-40 w-28 sm:h-40 h-28 object-cover"
                         />
                         <div className="flex flex-col justify-between w-full">
                           {/* Nombre + acciones */}
                           <div className="flex justify-between items-start">
-                            <p className="text-base">{item.name}</p>
+                            <p>{item.name}</p>
                             <div className="flex items-center gap-3">
                               <button
                                 onClick={() => handleEdit(item)}
@@ -108,14 +107,14 @@ export default function CarritoDeComprasNuevo() {
                           <div className="flex items-center border rounded-lg overflow-hidden w-fit mt-2">
                             <button
                               onClick={() => updateQuantity(item.id, -1)}
-                              className="px-3 py-1 bg-gray-100 hover:bg-gray-200 transition"
+                              className="sm:px-3 px-1 py-1 bg-gray-100 hover:bg-gray-200 transition"
                             >
                               <FaMinus />
                             </button>
                             <span className="px-4">{item.quantity}</span>
                             <button
                               onClick={() => updateQuantity(item.id, 1)}
-                              className="px-3 py-1 bg-gray-100 hover:bg-gray-200 transition"
+                              className="sm:px-3 px-1 py-1 bg-gray-100 hover:bg-gray-200 transition"
                             >
                               <FaPlus />
                             </button>
@@ -143,7 +142,7 @@ export default function CarritoDeComprasNuevo() {
           {/* Resumen al fondo, visible siempre */}
           <div className="border-t py-8 rounded-b-lg shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
             <div className="flex flex-col gap-6 w-full items-center">
-              <div className="space-y-2 w-1/2 text-gray-800 font-medium text-lg">
+              <div className="space-y-2 sm:w-1/2 w-2/3 text-gray-800 font-medium sm:text-lg text-sm">
                 <div className="flex justify-between">
                   <span className="">Subtotal:</span>
                   <span className="">MXN ${calculateSubtotal().toFixed(2)}</span>
@@ -153,7 +152,7 @@ export default function CarritoDeComprasNuevo() {
                   <span className="text-[#7400ad] font-semibold"> MXN ${shippingCost.toFixed(2)}</span>
                 </div>
                 <hr />
-                <div className="flex justify-between text-2xl font-semibold">
+                <div className="flex justify-between sm:text-2xl text-lg font-semibold">
                   <span>Total </span> <span className="text-sm">(IVA Incluido) </span>
                   <span> MXN ${(calculateSubtotal() + shippingCost).toFixed(2)}</span>
                 </div>
@@ -161,7 +160,7 @@ export default function CarritoDeComprasNuevo() {
 
               <button
                 onClick={() => navigate("/checkout")}
-                className=" bg-gradient-to-r from-[#7400ad] to-[#d80495] text-xl text-white px-8 py-2 rounded-full hover:bg-[#003080] transition duration-300"
+                className=" bg-gradient-to-r from-[#7400ad] to-[#d80495] sm:text-xl text-white px-8 py-2 rounded-full hover:bg-[#003080] transition duration-300"
               >
                 PROCEDER AL PAGO
               </button>

@@ -30,16 +30,16 @@ function SoporteTecnico() {
   };
 
   return (
-    <div className="bg-gray-100 py-16">
-      <div className="container mx-auto px-6">
-        <h1 className="text-4xl font-bold text-center text-[#7400ad] mb-16">
+    <div className="bg-gray-100 sm:py-16 py-8">
+      <div className="container mx-auto sm:px-6 px-3">
+        <h1 className="sm:text-4xl text-xl font-bold text-center text-[#7400ad] sm:mb-16 mb-5">
           Soporte Técnico
         </h1>
-        <div className="bg-white rounded-lg shadow-md p-12 border border-gray-200">
-          <p className="text-lg text-gray-900 leading-relaxed text-center mb-6">
+        <div className="bg-white rounded-lg shadow-md sm:p-12 p-6 border border-gray-200 sm:text-base text-sm">
+          <p className="sm:text-lg text-gray-900 leading-relaxed text-center mb-6">
             ¿Tienes problemas técnicos? Completa el formulario para reportar tu problema o consulta nuestra guía de solución de problemas.
           </p>
-          <h2 className="text-2xl font-bold text-[#7400ad] mb-6">Problemas Comunes</h2>
+          <h2 className="sm:text-2xl text-xl font-bold text-[#7400ad] mb-6">Problemas Comunes</h2>
           <ul className="space-y-4">
             <li>
               <h3 className="font-semibold text-gray-700">
@@ -66,7 +66,7 @@ function SoporteTecnico() {
               </p>
             </li>
           </ul>
-          <h2 className="text-2xl font-bold text-[#7400ad] mt-12 mb-6">
+          <h2 className="sm:text-2xl text-xl font-bold text-[#7400ad] mt-12 mb-6">
             Reportar un Problema
           </h2>
           {exito && (
@@ -146,7 +146,7 @@ function SoporteTecnico() {
                 type="submit"
                 className={`${
                   enviando ? 'bg-gray-400' : 'bg-gradient-to-r from-[#7400ad] to-[#d80495]'
-                } text-white px-8 py-2 text-xl rounded-full  hover:scale-125 transition duration-200`}
+                } text-white px-8 py-2 sm:text-xl rounded-full  hover:scale-125 transition duration-200`}
                 disabled={enviando}
 
               >
