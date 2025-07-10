@@ -33,8 +33,12 @@ export default function CarritoDeComprasNuevo() {
   };
 
   const handleEdit = (item) => {
-    // Aquí podrías abrir un modal, o redirigir a un editor de producto
-    alert(`Editar ${item.name}`);
+    navigate(`/producto/${item.id}`, {
+    state: {
+      fromCart: true,
+      currentData: item
+    }
+  });
   };
 
   console.log("Carrito de Compras:", cart);

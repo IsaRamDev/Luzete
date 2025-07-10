@@ -230,12 +230,12 @@ export default function PerfilUsuario() {
                     <div className="flex justify-between mt-6 sm:px-10 px-3">
                       <button
                         onClick={handleEdit}
-                        className="sm:px-6 px-3 py-3 border-2 text-gray-600 border-gray-600 rounded-full hover:bg-[#003080] transition duration-300"
+                        className="sm:px-6 px-3 py-3 border-2 text-gray-600 border-gray-600 rounded-full transition duration-300"
                       >
                         Editar Perfil
                       </button>
                       <button
-                        onClick={() => navigate("/logout")} href="#"
+                        onClick={() => navigate("/auth-screen")} href="#"
                         className="sm:px-6 px-3 py-3 bg-red-500 text-white bg-gradient-to-r from-[#7400ad] to-[#d80495] rounded-full hover:bg-red-600 transition duration-300"
                       >
                         Cerrar Sesión
@@ -244,8 +244,8 @@ export default function PerfilUsuario() {
                   </>
                 ) : (
                   <>
-                    <div className="mb-6">
-                      <label className="block text-lg font-medium mb-2">Nombre</label>
+                    <div className="sm:mb-6 mb-3">
+                      <label className="block sm:text-lg font-medium mb-2">Nombre</label>
                       <input
                         type="text"
                         name="nombre"
@@ -254,8 +254,8 @@ export default function PerfilUsuario() {
                         className="border border-gray-300 rounded-lg px-4 py-2 w-full"
                       />
                     </div>
-                    <div className="mb-6">
-                      <label className="block text-lg font-medium mb-2">
+                    <div className="sm:mb-6 mb-3">
+                      <label className="block sm:text-lg font-medium mb-2">
                         Correo Electrónico
                       </label>
                       <input
@@ -266,8 +266,8 @@ export default function PerfilUsuario() {
                         className="border border-gray-300 rounded-lg px-4 py-2 w-full"
                       />
                     </div>
-                    <div className="mb-6">
-                      <label className="block text-lg font-medium mb-2">Teléfono</label>
+                    <div className="sm:mb-6 mb-3">
+                      <label className="block sm:text-lg font-medium mb-2">Teléfono</label>
                       <input
                         type="tel"
                         name="telefono"
@@ -276,8 +276,8 @@ export default function PerfilUsuario() {
                         className="border border-gray-300 rounded-lg px-4 py-2 w-full"
                       />
                     </div>
-                    <div className="mb-6">
-                      <label className="block text-lg font-medium mb-2">Dirección</label>
+                    <div className="sm:mb-6 mb-3">
+                      <label className="block sm:text-lg font-medium mb-2">Dirección</label>
                       <input
                         type="text"
                         name="direccion"
@@ -286,8 +286,8 @@ export default function PerfilUsuario() {
                         className="border border-gray-300 rounded-lg px-4 py-2 w-full"
                       />
                     </div>
-                    <div className="mb-6">
-                      <label className="block text-lg font-medium mb-2">
+                    <div className="sm:mb-6 mb-3">
+                      <label className="block sm:text-lg font-medium mb-2">
                         Contraseña
                       </label>
                       <input
@@ -302,13 +302,13 @@ export default function PerfilUsuario() {
                     <div className="flex justify-between mt-6">
                       <button
                         onClick={handleSave}
-                        className="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-300"
+                        className="px-6 py-3 bg-gradient-to-r from-[#7400ad] to-[#d80495] text-white rounded-full hover:bg-green-600 transition duration-300"
                       >
                         Guardar Cambios
                       </button>
                       <button
                         onClick={handleCancel}
-                        className="px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition duration-300"
+                        className="px-6 py-3 bg-red-700 text-white rounded-full hover:bg-gray-600 transition duration-300"
                       >
                         Cancelar
                       </button>

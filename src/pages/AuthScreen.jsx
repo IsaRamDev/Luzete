@@ -148,7 +148,7 @@ function AuthScreen() {
             <p className="text-gray-600 text-center sm:mt-6 mt-3 text-sm sm:text-base">
               ¿No tienes cuenta?{' '}
               <a
-                href="#"
+                href="/auth-screen"
                 className="text-[#7400ad] font-semibold hover:underline"
               >
                 Registrate
