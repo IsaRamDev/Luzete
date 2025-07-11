@@ -10,16 +10,13 @@ function Navbar() {
   const navigate = useNavigate();
   let catalogTimeout;
 
-  const handleCatalogMouseEnter = () => {
-    clearTimeout(catalogTimeout);
-    setIsCatalogOpen(true);
-  };
-
-  const handleCatalogMouseLeave = () => {
-    catalogTimeout = setTimeout(() => {
+  const handleCatalogToggle = () => {
+    if (isCatalogOpen) {
       setIsCatalogOpen(false);
-      setOpenSubMenu("mujer"); // Cierra todos los submenús
-    }, 300);
+      setOpenSubMenu("mujer");
+    } else {
+      setIsCatalogOpen(true);
+    }
   };
 
   const handleSubMenuMouseEnter = (menuKey) => {
@@ -107,24 +104,20 @@ function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-      <div className="container mx-auto max-w-none flex justify-between items-center py-2 sm:px-10 px-0">
+      <div className="container mx-auto max-w-none flex justify-between items-center py-2 sm:px-10 px-4">
         {/* Catálogo con menú desplegable */}
         <div
           className="relative"
-          onMouseEnter={handleCatalogMouseEnter}
-          onMouseLeave={handleCatalogMouseLeave}
         >
-          <button className="flex items-center font-semibold sm:px-4 px-2 py-2">
-            {!isCatalogOpen && <img
-              src="/src/assets/MENU.png"
-              alt="Menu Catalogo"
+           <button
+            onClick={handleCatalogToggle}
+            className="flex items-center font-semibold sm:px-4 px-2 py-2"
+          >
+            <img
+              src={isCatalogOpen ? "/src/assets/MENU2.png" : "/src/assets/MENU.png"}
+              alt="Menú Catálogo"
               className="sm:h-6 h-4 sm:w-8 w-6 sm:mr-2 mr-0"
-            />}
-            {isCatalogOpen && <img
-              src="/src/assets/MENU2.png"
-              alt="Menu Catalogo"
-              className="sm:h-6 h-4 sm:w-8 w-6 sm:mr-2 mr-0"
-            />}
+            />
           </button>
           {isCatalogOpen && (
             <div className="absolute top-24 -left-6 bg-white rounded-lg shadow-lg z-50 px-10 py-5">
@@ -175,7 +168,7 @@ function Navbar() {
           </a>
         </div>
         {/* Navegación principal */}
-        <nav className="flex items-center space-x-6">
+        <nav className="sm:flex items-center space-x-6 hidden">
           {/* Barra de búsqueda */}
           <div className="relative bg-gradient-to-r from-[#7400ad] to-[#d80495] p-[2px] rounded-full transition hover:scale-110 duration-200">
             <div className="flex items-center bg-white rounded-full sm:w-96 w-40 sm:pl-10 pl-5 relative">
@@ -222,7 +215,7 @@ function Navbar() {
         </nav>
 
         {/* Íconos de usuario */}
-        <div className="flex items-center sm:space-x-4 space-x-2">
+        <div className="flex items-center space-x-4">
           <button
             className="flex flex-row text-xs sm:text-base text-white sm:px-10 px-2 sm:py-1 py-1 rounded-full bg-gradient-to-r from-[#7400ad] to-[#d80495] hover:scale-125 transition duration-200"
             onClick={() => navigate("/auth-screen")} href="#"
@@ -283,6 +276,52 @@ function Navbar() {
           </button>
         </div>
       </div>
+      {/* Navegación versión móvil */}
+      <nav className="px-1 pt-0 pb-2 sm:hidden">
+        {/* Barra de búsqueda */}
+        <div className="relative bg-gradient-to-r from-[#7400ad] to-[#d80495] p-[2px] rounded-full transition hover:scale-110 duration-200">
+          <div className="flex items-center bg-white rounded-full sm:w-96 w-full sm:pl-10 pl-5 relative">
+            <input
+              type="text"
+              placeholder="Buscar productos..."
+              className="w-full sm:text-base text-xs bg-transparent focus:outline-none"
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+                setShowSuggestions(true);
+              }}
+              onFocus={() => setShowSuggestions(true)}
+              onBlur={() => setTimeout(() => setShowSuggestions(false), 200)} // Para que sí funcione el click en sugerencia
+            />
+            <FaSearch className="absolute sm:text-base text-xs sm:left-5 left-1 text-gray-400" />
+            <button
+              className="bg-[#d80495] text-white sm:px-3 px-2 sm:py-1 py-0 rounded-full hover:bg-[#7400ad] transition hover:scale-110 duration-200"
+              onClick={handleSearch}
+            >
+              <FaSearch className="inline sm:text-base text-xs mb-1 text-white" />
+            </button>
+
+            {/* SUGERENCIAS */}
+            {showSuggestions && filteredSuggestions.length > 0 && (
+              <ul className="absolute top-12 left-0 w-full bg-white shadow-lg rounded-md max-h-60 overflow-y-auto z-50">
+                {filteredSuggestions.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100 sm:text-sm text-xs"
+                    onClick={() => {
+                      setSearchTerm(item);
+                      handleSearch();
+                    }}
+                  >
+                    <FaSearch className="text-gray-500 mr-2" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      </nav>
     </header>
   );
 }

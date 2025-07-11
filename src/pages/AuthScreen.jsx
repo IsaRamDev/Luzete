@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function AuthScreen() {
-  const [isRegister, setIsRegister] = useState(true);
+  const [isRegister, setIsRegister] = useState(false);
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',

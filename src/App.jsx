@@ -18,17 +18,19 @@ import CarritoDeCompras from "./pages/CarritoCompras";
 import MeGusta from "./pages/MeGusta";
 import PerfilScreen from "./pages/PerfilScreen";
 import PantallaDevoluciones from "./pages/Devoluciones";
+import BotonHome from "./components/BotonHome";
 
 function App() {
   return (
     <Router>
       <div>
         <Navbar />
+        <BotonHome />
         <div className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
-              path="/catalogo/:category/:subCategory"
+              path="/:category/:subCategory"
               element={<Catalogo />}
             />
             <Route

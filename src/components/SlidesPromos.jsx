@@ -27,7 +27,7 @@ export default function SlidesPromos() {
   }, []);
 
   return (
-    <div className="relative sm:mb-24 mb-10 sm:mt-20 mt-10">
+    <div className="relative sm:mb-24 mb-10 sm:mt-20 mt-24">
       <div className="w-full h-1/2 overflow-hidden">
         <div
           className="flex transition-transform duration-500 ease-in-out"
