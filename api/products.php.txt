@@ -1,0 +1,47 @@
+<?php
+// api/products.php
+require 'config.php';
+if (!isset($_SESSION['user_id'])) {
+  http_response_code(401);
+  echo json_encode(['error'=>'No autorizado']);
+  exit;
+}
+$method = $_SERVER['REQUEST_METHOD'];
+
+if ($method === 'GET') {
+  // Listar productos con imágenes y variantes
+  $prods = $pdo->query("SELECT * FROM products")->fetchAll(PDO::FETCH_ASSOC);
+  foreach ($prods as &$p) {
+    // imágenes
+    $stmt = $pdo->prepare("SELECT id, alt_text FROM product_images WHERE product_id=? ORDER BY `order`");
+    $stmt->execute([$p['id']]);
+    $p['images'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // variantes
+    $stmt = $pdo->prepare("SELECT * FROM product_variants WHERE product_id=?");
+    $stmt->execute([$p['id']]);
+    $p['variants'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+  echo json_encode($prods);
+  exit;
+}
+
+if ($method === 'POST') {
+  // Crear producto
+  $d = json_decode(file_get_contents('php://input'), true);
+  $sql = "CALL sp_create_product(:vid, :scid, :name, :desc, :sku, :price)";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([
+    ':vid'  => $d['vendor_id'],
+    ':scid' => $d['subcategory_id'],
+    ':name' => $d['name'],
+    ':desc' => $d['description'],
+    ':sku'  => $d['sku'],
+    ':price'=> $d['price'],
+  ]);
+  $new = $stmt->fetch(PDO::FETCH_ASSOC);
+  echo json_encode($new);
+  exit;
+}
+
+http_response_code(405);
+echo json_encode(['error'=>'Método no permitido']);

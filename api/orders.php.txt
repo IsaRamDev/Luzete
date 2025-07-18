@@ -1,0 +1,46 @@
+<?php
+// api/orders.php
+// if (!isset($_SESSION['user_id'])) {
+//   http_response_code(401);
+//   echo json_encode(['error'=>'No autorizado']);
+//   exit;
+// }
+require 'config.php';
+$method = $_SERVER['REQUEST_METHOD'];
+
+if ($method === 'POST') {
+  $d = json_decode(file_get_contents('php://input'), true);
+  // 1/ crear pedido
+  $sql = "CALL sp_create_order(:uid, :aid, :cid, :sub, :disc, :ship, :tot, :st)";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([
+    ':uid'  => $d['user_id'],
+    ':aid'  => $d['address_id'],
+    ':cid'  => $d['coupon_id'] ?? null,
+    ':sub'  => $d['subtotal'],
+    ':disc' => $d['discount'],
+    ':ship' => $d['shipping_cost'],
+    ':tot'  => $d['total'],
+    ':st'   => $d['status'],
+  ]);
+  $order = $stmt->fetch(PDO::FETCH_ASSOC);
+
+  // 2/ agregar ítems
+  foreach ($d['items'] as $item) {
+    $sql = "CALL sp_add_order_item(:oid, :pid, :vid, :qty, :up)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+      ':oid' => $order['new_order_id'],
+      ':pid' => $item['product_id'],
+      ':vid' => $item['variant_id'] ?? null,
+      ':qty' => $item['quantity'],
+      ':up'  => $item['unit_price'],
+    ]);
+  }
+
+  echo json_encode($order);
+  exit;
+}
+
+http_response_code(405);
+echo json_encode(['error'=>'Método no permitido']);

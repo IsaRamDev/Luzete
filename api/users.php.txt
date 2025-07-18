@@ -1,0 +1,38 @@
+<?php
+// api/users.php
+require 'config.php';
+// if (!isset($_SESSION['user_id'])) {
+//   http_response_code(401);
+//   echo json_encode(['error'=>'No autorizado']);
+//   exit;
+// }
+
+$method = $_SERVER['REQUEST_METHOD'];
+
+if ($method === 'GET') {
+  // Listar todos los usuarios
+  $stmt = $pdo->query("SELECT id, first_name, last_name, email FROM users");
+  echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+  exit;
+}
+
+if ($method === 'POST') {
+  // Crear usuario con tu SP
+  $data = json_decode(file_get_contents('php://input'), true);
+  $sql = "CALL sp_create_user(:fn, :ln, :email, :phash, :phone)";
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute([
+    ':fn'    => $data['first_name'],
+    ':ln'    => $data['last_name'],
+    ':email' => $data['email'],
+    ':phash' => $data['password_hash'],
+    ':phone' => $data['phone'] ?? null,
+  ]);
+  // El SP devuelve new_user_id
+  $new = $stmt->fetch(PDO::FETCH_ASSOC);
+  echo json_encode($new);
+  exit;
+}
+
+http_response_code(405);
+echo json_encode(['error'=>'Método no permitido']);

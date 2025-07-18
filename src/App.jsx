@@ -15,12 +15,28 @@ import Ayuda from "./pages/Ayuda";
 import SoporteTecnico from "./pages/SoporteTecnico";
 import AuthScreen from "./pages/AuthScreen";
 import CarritoDeCompras from "./pages/CarritoCompras";
+
+import React, { useEffect, useState } from "react";
 import MeGusta from "./pages/MeGusta";
 import PerfilScreen from "./pages/PerfilScreen";
 import PantallaDevoluciones from "./pages/Devoluciones";
 import BotonHome from "./components/BotonHome";
 
 function App() {
+   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+useEffect(() => {
+  fetch("https://www.luzetefashion.com/api/products.php")
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+      return res.json();
+    })
+    .then(data => setProductos(data))
+    .catch(error => console.error("Error cargando productos:", error));
+}, []);
+
   return (
     <Router>
       <div>

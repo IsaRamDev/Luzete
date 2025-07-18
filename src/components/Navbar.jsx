@@ -231,7 +231,7 @@ function Navbar() {
             />
             <img
               src="/src/assets/USER OVER.png"
-              className="hidden group-hover:block hover:scale-110 w-6 h-6 transition duration-200"
+              className="hidden group-hover:block hover:scale-110 sm:w-6 w-4 sm:h-6 h-4 transition duration-200"
               alt="USER Hover"
             />
           </button>
@@ -244,7 +244,7 @@ function Navbar() {
             />
             <img
               src="/src/assets/FAV OVER.png"
-              className="hidden group-hover:block hover:scale-110 w-6 h-6 transition duration-200"
+              className="hidden group-hover:block hover:scale-110 sm:w-6 w-4 sm:h-6 h-4 transition duration-200"
               alt="FAV Hover"
             />
           </button>
@@ -257,7 +257,7 @@ function Navbar() {
             />
             <img
               src="/src/assets/BAG OVER.png"
-              className="hidden group-hover:block hover:scale-110 w-6 h-6 transition duration-200"
+              className="hidden group-hover:block hover:scale-110 sm:w-6 w-4 sm:h-6 h-4 transition duration-200"
               alt="BAG Hover"
             />
           </button>
@@ -270,7 +270,7 @@ function Navbar() {
             />
             <img
               src="/src/assets/CONTACT OVER.png"
-              className="hidden group-hover:block hover:scale-110 w-6 h-6 transition duration-200"
+              className="hidden group-hover:block hover:scale-110 sm:w-6 w-4 sm:h-6 h-4 transition duration-200"
               alt="CONTACT Hover"
             />
           </button>
@@ -279,7 +279,7 @@ function Navbar() {
       {/* Navegación versión móvil */}
       <nav className="px-1 pt-0 pb-2 sm:hidden">
         {/* Barra de búsqueda */}
-        <div className="relative bg-gradient-to-r from-[#7400ad] to-[#d80495] p-[2px] rounded-full transition hover:scale-110 duration-200">
+        <div className="relative bg-gradient-to-r from-[#7400ad] to-[#d80495] p-[2px] rounded-full">
           <div className="flex items-center bg-white rounded-full sm:w-96 w-full sm:pl-10 pl-5 relative">
             <input
               type="text"
@@ -295,7 +295,7 @@ function Navbar() {
             />
             <FaSearch className="absolute sm:text-base text-xs sm:left-5 left-1 text-gray-400" />
             <button
-              className="bg-[#d80495] text-white sm:px-3 px-2 sm:py-1 py-0 rounded-full hover:bg-[#7400ad] transition hover:scale-110 duration-200"
+              className="bg-[#d80495] text-white sm:px-3 px-2 sm:py-1 py-0 rounded-full hover:bg-[#7400ad]"
               onClick={handleSearch}
             >
               <FaSearch className="inline sm:text-base text-xs mb-1 text-white" />

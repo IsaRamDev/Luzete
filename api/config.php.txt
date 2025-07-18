@@ -1,0 +1,29 @@
+<?php
+// api/config.php
+header('Content-Type: application/json; charset=utf-8');
+// permitir CORS
+header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: http://localhost:1218');   // ajusta tu dominio
+header('Access-Control-Allow-Credentials: true');                // habilita cookies
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
+
+session_start();
+
+$dbHost = '89.117.9.204';
+$dbName = 'u924474098_luzetefashion';
+$dbUser = 'u924474098_admin';
+$dbPass = 'z9dDMdW8R';
+
+try {
+  $pdo = new PDO(
+    "mysql:host=$dbHost;dbname=$dbName;charset=utf8",
+    $dbUser,
+    $dbPass,
+    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+  );
+} catch (Exception $e) {
+  http_response_code(500);
+  echo json_encode(['error' => 'No se pudo conectar a la BD']);
+  exit;
+}
